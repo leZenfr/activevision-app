@@ -13,3 +13,16 @@ La solution proposée a pour objectif de surveiller les événements critiques a
 - **La mise en place d’un système d’alerte** pour remonter des notifications qui seront générées en cas de détection de comportements suspects ou d’activités anormales. 
 
 **Le développement d’une plateforme web** afin de retranscrire tous les événements détectés.
+
+## 📥 Installation du projet 
+
+```
+sudo git clone https://github.com/leZenfr/activevision-app.git
+```
+
+## ⚙️ Configuration du projet
+
+[Documentation : Partage SMB via Kerberos](https://github.com/leZenfr/activevision-app/blob/main/documentation/doc-share.md)
+[Documentation : Application Web](https://github.com/leZenfr/activevision-app/blob/main/documentation/doc-web.md)
+[Documentation : Agents Python](https://github.com/leZenfr/activevision-app/blob/main/documentation/doc-agents.md)
+[Documentation : Active Directory](https://github.com/leZenfr/activevision-app/blob/main/documentation/doc-agents.md)
