@@ -4,7 +4,7 @@
 
 Préparer tous les packages nécessaires
 ```
-sudo apt update && sudo apt install apache2 php php-cli php-mbstring php-xml php-bcmath php-curl php-mysql unzip curl mariadb-server mariadb-client phpmyadmin composer git python3 python3-pip python3-venv npm -y
+sudo apt update && sudo apt install apache2 php php-cli php-mbstring php-xml php-bcmath php-curl php-mysql unzip curl mariadb-server mariadb-client phpmyadmin composer python3 python3-pip python3-venv npm -y
 ```
 Pour le serveur web sélectionner faire `espace` puis `entrer`
 
