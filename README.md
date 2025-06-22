@@ -8,7 +8,7 @@ La solution proposée a pour objectif de surveiller les événements critiques a
 
 - **La supervision des logs de sécurité**, incluant la création, la modification et la suppression des objets utilisateurs, groupes et ordinateurs ainsi que le verrouillage des comptes.
 
-- **Le suivi des modifications d’attributs  en utilisant un ensemble d’attributs relatifs aux objets utilisateurs, groupes et ordinateurs sera collecté à chaque analyse. Cela permettra de détecter les modifications, d’en conserver un historique, et ainsi de faciliter les audits.
+- **Le suivi des modifications d’attributs** en utilisant un ensemble d’attributs relatifs aux objets utilisateurs, groupes et ordinateurs sera collecté à chaque analyse. Cela permettra de détecter les modifications, d’en conserver un historique, et ainsi de faciliter les audits.
 
 - **La mise en place d’un système d’alerte** pour remonter des notifications qui seront générées en cas de détection de comportements suspects ou d’activités anormales. 
 
