@@ -41,7 +41,6 @@ def process_objects(json_file):
     connection = connect_db()
     cursor = connection.cursor()
 
-    # Pour chaque SID/object du JSON
     for sid, obj in data.items():
         if not isinstance(obj, dict):
             continue
@@ -50,7 +49,7 @@ def process_objects(json_file):
             if object_class == "user":
                 sql = """
                     INSERT INTO ObjectUsers (objectSid, badPasswordTime, lastLogon, lockoutTime, displayName, userPrincipalName, sAMAccountName, distinguishedName, accountExpires, whenChanged, whenCreated, userAccountControl, created_at, updated_at)
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, FROM_UNIXTIME(%s), %s, %s, %s, NOW(), NOW())
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, NOW(), NOW())
                     ON DUPLICATE KEY UPDATE
                     displayName = VALUES(displayName), userPrincipalName = VALUES(userPrincipalName), sAMAccountName = VALUES(sAMAccountName), distinguishedName = VALUES(distinguishedName), accountExpires = VALUES(accountExpires), whenChanged = VALUES(whenChanged), whenCreated = VALUES(whenCreated), userAccountControl = VALUES(userAccountControl), updated_at = NOW()
                 """
@@ -69,6 +68,10 @@ def process_objects(json_file):
                     obj.get("userAccountControl", 0)
                 ))
             elif object_class == "group":
+                # Convertit member en chaîne si c'est une liste
+                member = obj.get("member", [])
+                if isinstance(member, list):
+                    member = json.dumps(member, ensure_ascii=False)
                 sql = """
                     INSERT INTO objectgroup (objectSid, member, distinguishedName, whenChanged, whenCreated, created_at, updated_at)
                     VALUES (%s, %s, %s, %s, %s, NOW(), NOW())
@@ -77,7 +80,7 @@ def process_objects(json_file):
                 """
                 cursor.execute(sql, (
                     obj["objectSid"],
-                    obj.get("member", ""),
+                    member,
                     obj.get("distinguishedName", ""),
                     convert_json_date(obj.get("whenChanged")),
                     convert_json_date(obj.get("whenCreated"))
