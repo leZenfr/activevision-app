@@ -15,7 +15,7 @@ sudo cp -r activevision-web/  /var/www/
 ```
 Il faut ensuite installer les dépendances 
 ```
-cd activevision/
+cd /var/www/activevision-web
 ```
 ```
 sudo composer install
