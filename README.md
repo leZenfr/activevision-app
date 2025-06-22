@@ -25,6 +25,10 @@ Ce projet a pour but de mettre en place une solution de **supervision d’un env
 ## 📥 Installation du projet 
 
 ```
+sudo apt install git
+```
+
+```
 sudo git clone https://github.com/leZenfr/activevision-app.git
 ```
 
