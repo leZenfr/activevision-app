@@ -22,7 +22,7 @@ sudo git clone https://github.com/leZenfr/activevision-app.git
 
 ## ⚙️ Configuration du projet
 
-[Documentation : Partage SMB via Kerberos](https://github.com/leZenfr/activevision-app/blob/main/documentation/doc-share.md)
-[Documentation : Application Web](https://github.com/leZenfr/activevision-app/blob/main/documentation/doc-web.md)
-[Documentation : Agents Python](https://github.com/leZenfr/activevision-app/blob/main/documentation/doc-agents.md)
-[Documentation : Active Directory](https://github.com/leZenfr/activevision-app/blob/main/documentation/doc-agents.md)
+- [Documentation : Partage SMB via Kerberos](https://github.com/leZenfr/activevision-app/blob/main/documentation/doc-share.md)
+- [Documentation : Application Web](https://github.com/leZenfr/activevision-app/blob/main/documentation/doc-web.md)
+- [Documentation : Agents Python](https://github.com/leZenfr/activevision-app/blob/main/documentation/doc-agents.md)
+- [Documentation : Active Directory](https://github.com/leZenfr/activevision-app/blob/main/documentation/doc-agents.md)
