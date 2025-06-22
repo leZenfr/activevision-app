@@ -26,7 +26,15 @@ sudo chmod +x install-lib.sh
 sudo chmod +x start.sh
 ```
 
-## Étape 3 : Exécuter les scripts dans l'ordre
+## Étape 3 : Configurer la base de données des scripts python
+
+```
+sudo nano event-agent.py
+```
+
+Puis modifier les informations de la base.
+
+## Étape 4 : Exécuter les scripts dans l'ordre
 
 Installation des librairies requises dans un venv
 ```
