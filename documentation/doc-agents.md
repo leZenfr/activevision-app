@@ -4,9 +4,6 @@
 Il faut dans un premier temps créer le répertoire où les agents agiront
 
 ```
-sudo mkdir -p /srv/partage/
-```
-```
 sudo mkdir -p /srv/partage/objects
 sudo mkdir -p /srv/partage/events
 ```
