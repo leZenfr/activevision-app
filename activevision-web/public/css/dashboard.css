@@ -1,0 +1,261 @@
+:root{
+    /* ===== Colors ===== */
+    --body-color : #E4E9F7;
+    --sidebar-color: #fff;
+    --primary-color: #FF0000;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #ddd;
+    --text-color: #707070;
+
+    /* ===== Transitions ===== */
+    --tran-02 : all 0.2s ease;
+    --tran-03 : all 0.3s ease;
+    --tran-04 : all 0.4s ease;
+    --tran-05 : all 0.5s ease;
+}
+
+
+/* ==== Body en mode initial ==== */
+body{
+    height: 100vh;
+    background: var(--body-color);
+    transition: var(--tran-05);
+}
+/* ==== Body en mode sombre ==== */
+body.dark{
+    --body-color : #18191A;
+    --sidebar-color: #242526;
+    --primary-color: #FF0000;
+    --primary-color-light: #3A3B3C;
+    --toggle-color: #fff;
+    --text-color: #CCC;
+}
+
+.dashboard{
+    width: 75%;
+    height: 50%;
+    margin-left: 19%;
+    font-size: x-large;
+    color: var(--text-color);
+}
+
+.dashboard-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.modern-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+.modern-table thead {
+    background-color: var(--primary-color-light);
+}
+
+.modern-table th, .modern-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--sidebar-color);
+    transition: 1s;
+}
+
+.modern-table th {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+
+.modern-table tr:hover {
+    cursor: pointer;
+}
+
+tbody tr:nth-child(odd) {
+    background-color:var(--primary-color-light);
+  }
+  
+tbody tr:nth-child(even) {
+    background-color:var(--sidebar-color)
+}
+
+.modern-table td {
+    vertical-align: middle;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-transform: capitalize;
+    display: inline-block;
+}
+
+.status.pending {
+    background-color: #ffcc00;
+    color: #FFF;
+}
+
+.status.accepted {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.status.rejected {
+    background-color: #f44336;
+    color: #fff;
+}
+
+.status.blocked {
+    background-color: #920a00;
+    color: #fff;
+}
+
+.add-agent-form {
+    background-color: var(--primary-color-light);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.add-agent-form h2 {
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #b30000;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--sidebar-color);
+    border-radius: 4px;
+}
+
+.space {
+    margin-top: 3%;
+}
+
+/* .btn {
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+} */
+
+.btn {
+    background-color: #c6c1c2;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover{
+    background-color: #FF0000;
+}
+.btn-danger{
+    background-color: #740c0c;
+}
+
+.btn-danger:hover {
+    background-color: #590b0b;
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-warning {
+    background-color: #ff0000;
+    color: #212529;
+}
+
+.btn-warning:hover {
+    background-color: #e30202;
+}
+
+.role-select {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.role-select select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    appearance: none; /* Remove default styling */
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+}
+
+.role-select::after {
+    content: '▼'; /* Symbol for the dropdown */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 10px;
+    color: #666;
+}
+
+/* Hover Effect */
+.role-select select:hover {
+    background-color: #e8e8e8;
+}
+
+.role-select select:focus {
+    outline: none;
+    border-color: #aaa;
+    background-color: #fff;
+}

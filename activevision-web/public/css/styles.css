@@ -1,0 +1,668 @@
+/* ==== Import de la police d'écriture depuis Google fonts ==== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ===== Configuration des couleurs et des transitions =====*/
+:root{
+    /* ===== Colors ===== */
+    --body-color : #E4E9F7;
+    --sidebar-color: #fff;
+    --primary-color: #FF0000;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #ddd;
+    --text-color: #707070;
+
+    /* ===== Transitions ===== */
+    --tran-02 : all 0.2s ease;
+    --tran-03 : all 0.3s ease;
+    --tran-04 : all 0.4s ease;
+    --tran-05 : all 0.5s ease;
+}
+
+
+
+/* ==== BODY ==== */
+
+/* ==== Body en mode initial ==== */
+body{
+    height: 100vh;
+    background: var(--body-color);
+    transition: var(--tran-05);
+}
+/* ==== Body en mode sombre ==== */
+body.dark{
+    --body-color : #18191A;
+    --sidebar-color: #242526;
+    --primary-color: #FF0000;
+    --primary-color-light: #3A3B3C;
+    --toggle-color: #fff;
+    --text-color: #CCC;
+}
+
+/* ==== BODY ==== */
+
+
+
+/* ===== Sidebar / Mode Sombre ===== */
+.sidebar .text{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: var(--tran-04);
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar.close .text{
+    opacity: 0;
+}
+
+.sidebar .image{
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+    transition: var(--tran-05);
+    z-index: 100;
+}
+
+.sidebar.close{
+    width: 88px;
+}
+
+.sidebar li{
+    height: 50px;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li .icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    font-size: 20px;
+}
+.sidebar li .icon,
+.sidebar li .text{
+    color: var(--text-color);
+    transition: var(--tran-02);
+}
+
+.sidebar header{
+    position: relative;
+}
+
+.sidebar .image-text img{
+    width: 50px;
+    border-radius: 6px;
+}
+
+.sidebar header .image-text{
+    display: flex;
+    align-items: center;
+}
+
+header .image-text .header-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.header-text .name{
+    font-weight: 600;
+}
+.header-text .soustitre{
+    margin-top: -2px;
+}
+
+.sidebar header .toggle{
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 25px;
+    width: 25px;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--sidebar-color);
+    font-size: 22px;
+    transition: var(--tran-03);
+}
+
+.sidebar.close header .toggle{
+    transform: translateY(-50%);
+
+}
+
+body.dark .sidebar header .toggle{
+    color: var(--text-color);
+}
+.sidebar .menu{
+    margin-top: 35px;
+}
+
+.sidebar .cherche-box{
+    border-radius: 6px;
+    transition: var(--tran-05);
+}
+
+.cherche-box input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    background: var(--primary-color-light);
+    transition: var(--tran-05); 
+    
+}
+
+.sidebar li a{
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    transition: var(--tran-04);
+}
+
+.sidebar li a:hover{
+    background: var(--primary-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+    color: var(--sidebar-color);
+
+}
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text{
+    color: var(--text-color);
+
+}
+
+.sidebar .menu-bar{
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-bar .mode{
+    position: relative;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+}
+.menu-bar .mode .moon-sun{
+    height: 50px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+}
+.menu-bar .mode i{
+    position: absolute;
+    transition: var(--tran-03);
+}
+
+.menu-bar .mode i.sun{
+    opacity: 0;
+}
+
+body.dark .menu-bar .mode i.sun{
+    opacity: 1;
+}
+body.dark .menu-bar .mode i.moon{
+    opacity: 0;
+}
+
+.menu-bar .mode .toggle-switch{
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-width: 60px;
+    cursor: pointer;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+    transition: var(--tran-05);
+
+}
+
+.toggle-switch .switch{
+    position: relative;
+    height: 22px;
+    width: 44px;
+    border-radius: 25px;
+    background: var(--toggle-color);
+}
+
+.switch::before{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background: var(--sidebar-color);
+    transition: var(--tran-03);
+}
+
+body.dark .switch::before{
+    left: 24px;
+}
+
+/* ===== Sidebar / Mode Sombre ===== */
+
+
+
+/* ==== Section home ==== */
+
+.home{
+    position: relative;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+    background: var(--body-color);
+    transition: var(--tran-05);
+}
+
+/* ==== Section home ==== */
+
+
+
+/* ===== Mise en css de la police ===== */
+
+.home .text{
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 8px 40px;
+}
+.sidebar.close ~ .home{
+    left: 88px;
+    width: calc(100% - 88px);
+}
+
+.text2 {
+    font-size: 20px;
+    padding: 8px 40px;
+    font-weight: 500;
+    color: #fff;
+    margin-top: 1cm;
+    background-color: #242526;
+    border-radius: 50px;
+    opacity: 80%;
+    
+}
+.text2-2 {
+    font-size: 20px;
+    padding: 8px 40px;
+    font-weight: 500;
+    color: #fff;
+    margin-top: 1cm;
+    background-color: #242526;
+    border-radius: 50px;
+    opacity: 80%;
+    text-align: center;
+}
+.text2-3 {
+    font-size: 15px;
+    padding: 8px 40px;
+    font-weight: 500;
+    color: #fff;
+    margin-top: 1cm;
+    background-color: #242526;
+    border-radius: 50px;
+    opacity: 80%;
+    padding: 8px 20px;
+    width: 500px;
+    text-align: center;
+    margin-left: 1cm;
+    
+}
+
+.text3 {
+    font-size: 15px;
+    padding: 8px 40px;
+    margin-bottom: cm;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-top: -0.1cm;
+    margin-left: 1.5cm;
+    text-decoration: underline;
+}
+.text3-1 {
+    font-size: 15px;
+    padding: 8px 40px;
+    margin-bottom: cm;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-top: 0.5cm;
+    margin-left: 0.5cm;
+    text-decoration: underline;
+}
+.text4 {
+    font-size: 15px;
+    padding: 8px 40px;
+    margin-bottom: cm;
+    font-weight: 200;
+    color: var(--text-color);
+    margin-top: -0.3cm;
+    margin-left: 1.5cm;
+    
+}
+.pcontent{
+    font-size: 15px;
+    padding: 8px 40px;
+    margin-bottom: cm;
+    font-weight: 400;
+    color: var(--text-color);
+    margin-top: -0.3cm;
+    margin-left: 1.5cm;
+}
+.pcontent-2{
+    font-size: 15px;
+    padding: 8px 40px;
+    margin-bottom: cm;
+    font-weight: 400;
+    color: var(--text-color);
+    margin-top: -0.1cm;
+    margin-left: 0.4cm;
+}
+.pcontent-3{
+    font-size: 15px;
+    padding: 8px 40px;
+    margin-bottom: cm;
+    font-weight: 400;
+    color: var(--text-color);
+    margin-top: -1.01cm;
+    margin-left: 5cm;
+}
+
+footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== Mise en css de la police ===== */
+
+
+
+
+/* ===== Mise en forme des images ===== */
+
+.case{
+    width: 250px;
+    margin-top: 50px;
+    margin-left: 50px;
+    text-align: center;
+    transition: 0.5s;
+}
+.case:hover{
+    opacity: 95%;
+    transition: 0.5s;
+    transform: scale(1.06);
+}
+
+.graph{
+    width: 250px;
+    margin-left: 2cm;
+}
+
+.emploi-temps{
+    width: 1800px;
+    margin-top: 1cm;
+    margin-left: 0.5cm;
+}
+
+/* ==== Bannière de profil ==== */
+
+.stud-banner{
+    margin-left: 1cm;
+    margin-top: 1cm;
+    transition: 0.5s;
+}
+.stud-banner:hover{
+    transition: 0.5s;
+    transform: scale(1.009);
+}
+
+/* ==== Bannière de profil ==== */
+
+/* ===== Mise en forme des cases dans l'accueil ===== */
+
+
+
+
+/* ===== Boutons CSS ===== */
+
+.btn-sub{
+    width: 250px;
+    text-align: center;
+    text-decoration: none;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 10px;
+    transition: 0.1s;
+    cursor: pointer;
+    margin-top: 1cm;
+    margin-left: 1cm;
+    
+}
+.btn-sub:hover{
+    transform: scale(1.05);
+    transition: 0.1s;
+}
+.text-btn{
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn-disc{
+    width: 250px;
+    text-align: center;
+    background: var(--primary-color);
+    opacity: 80%;
+    padding: 8px 20px;
+    border-radius: 10px;
+    transition: 0.1s;
+    cursor: pointer;
+    margin-top: 0.5cm;
+    margin-left: 1cm;
+}
+/* ===== Boutons CSS ===== */
+
+
+/* ===== Mise en forme des icon ===== */
+.icon2{
+    color: var(--text-color);
+    margin-left: 1cm;
+    margin-top: 1cm;
+}
+
+.data{
+    position: relative;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+    background: var(--body-color);
+    transition: var(--tran-05);
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+
+.tickets {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.container-table100 {
+    width: 100%;
+    min-height: 100vh;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 33px 30px;
+}
+
+.limiter{
+    width: 100%;
+    margin: auto 0;
+}
+
+.wrap-table100 {
+    width: 1170px;
+}
+
+table {
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* ===== Table HEAD ===== */
+.table100-head {
+    height: 60px;
+    background:#1552af;
+}
+
+.table100-head th{
+    font-size: 18px;
+    color: white;
+    line-height: 1.2;
+}
+/* ===== Table HEAD ===== */
+
+table td, table th {
+    text-align: left;
+}
+
+table tbody tr {
+    height: 50px;
+    
+}
+
+tbody tr:nth-child(even){
+    background-color: #d0d0d0;
+}
+
+
+/* ===== Table de la page RESSOURCES ===== */
+
+
+
+/* ===== Colonnes de la Table de la page RESSOURCES ===== */
+.column1 {
+    width: 800px;
+    padding-left: 40px;
+    height: 100px;
+}
+.column2 {
+    width: 800px;
+    
+}
+.column3 {
+    width: 800px;
+}
+.column4 {
+    width: 800px;
+}
+
+/* ===== Colonnes de la Table de la page RESSOURCES | RESPONSIVE ===== */
+@media (max-width: 950px) {
+    .column1 {
+        width: 160px;
+        padding-left: 40px;
+    }
+    .column2 {
+        width: 100px;
+    }
+    .column3 {
+        width: 100px;
+    }
+    .column4 {
+        width: 100px;
+    }
+
+}
+
+@media (max-width: 700px) {
+    .column1 {
+        width: 150px;
+        padding-left: 40px;
+    }
+    .column2 {
+        width: 90px;
+    }
+    .column3 {
+        width: 90px;
+    }
+
+}
+
+
+
+/* ==== Brouillon ==== */
+/*.case2{
+    width: 800px;
+
+    margin-top: 40px;
+    margin-left: 40px;
+
+}
+.case2:hover{
+    opacity: 80%;
+}
+
+.case3{
+    width: 410px;
+    margin-top: -200px;
+    margin-left: 50px;
+    text-align: center;
+}
+.case3:hover{
+    opacity: 80%;
+    
+}*/
