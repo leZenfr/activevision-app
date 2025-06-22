@@ -13,9 +13,15 @@ sudo cp agents/event-agent.py /srv/
 
 ## Étape 3 : Configurer le script d'installation et le script de lancement
 ```
-sudo cp active-agents-py/install-lib.sh /srv/
-sudo cp active-agents-py/start.sh /srv/
+sudo cp conf/install-lib.sh /srv/
+sudo cp conf/start.sh /srv/
+```
 
+```
+cd /srv/
+```
+
+```
 sudo chmod +x install-lib.sh
 sudo chmod +x start.sh
 ```
