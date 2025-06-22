@@ -10,8 +10,8 @@ Pour le serveur web sélectionner faire `espace` puis `entrer`
 
 Installer le projet dans le répertoire `/var/www/`
 ```
-cd /var/www/
-sudo git clone https://github.com/leZenfr/activevision.git
+cd activevision-app/
+sudo cp -r activevision-web/  /var/www/
 ```
 Il faut ensuite installer les dépendances 
 ```
