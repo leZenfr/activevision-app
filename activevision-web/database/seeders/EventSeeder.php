@@ -171,6 +171,27 @@ class EventSeeder extends Seeder
                 'created_at' => '2025-06-10 12:02:04',
                 'updated_at' => '2025-06-10 12:02:04',
             ],
+            [
+                'idEvent' => 4741,
+                'titre' => 'Compte ordinateur créé',
+                'description' => 'Un compte ordinateur a été créé',
+                'created_at' => '2025-06-10 12:02:04',
+                'updated_at' => '2025-06-10 12:02:04',
+            ],
+            [
+                'idEvent' => 4742,
+                'titre' => 'Compte ordinateur modifié',
+                'description' => 'Un compte ordinateur a été modifié.',
+                'created_at' => '2025-06-10 12:02:04',
+                'updated_at' => '2025-06-10 12:02:04',
+            ],
+            [
+                'idEvent' => 4743,
+                'titre' => 'Compte ordinateur supprimé',
+                'description' => 'Un compte ordinateur a été supprimé.',
+                'created_at' => '2025-06-10 12:02:04',
+                'updated_at' => '2025-06-10 12:02:04',
+            ],
         ]);
     }
 }
