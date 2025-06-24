@@ -45,7 +45,7 @@
                             </tr>
                             <tr>
                                 <td class="border border-gray-300 px-4 py-2">Adresse IP</td>
-                                <td class="border border-gray-300 px-4 py-2">{{ $log->ipAddress ?? 'Non spécifiée' }}</td>
+                                <td class="border border-gray-300 px-4 py-2">{{ $log->serverIp ?? 'Non spécifiée' }}</td>
                             </tr>
                             <tr>
                                 <td class="border border-gray-300 px-4 py-2">Date</td>

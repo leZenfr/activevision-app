@@ -29,8 +29,8 @@
                                     <td class="border border-gray-300 px-4 py-2">
                                         {{ $log->identifiedLog->event->titre ?? 'Non spécifié' }}
                                     </td>
-                                    <td class="border border-gray-300 px-4 py-2">{{ $log->targetUserName ?? 'Non spécifié' }}</td>
-                                    <td class="border border-gray-300 px-4 py-2">{{ $log->ipAddress ?? 'Non spécifiée' }}</td>
+                                    <td class="border border-gray-300 px-4 py-2">{{ $log->sAMAccountName ?? 'Non spécifié' }}</td>
+                                    <td class="border border-gray-300 px-4 py-2">{{ $log->serverIp ?? 'Non spécifiée' }}</td>
                                     <td class="border border-gray-300 px-4 py-2">{{ $log->created_at->format('d/m/Y H:i') }}</td>
                                     <td class="border border-gray-300 px-4 py-2">
                                         <a href="{{ route('events.users.show', $log->userLogId) }}" class="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600">
