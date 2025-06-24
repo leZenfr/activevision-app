@@ -81,7 +81,7 @@ def process_events(events,userID,groupID,computerID,dbConfig):
                         %s, %s, %s, %s, %s, 
                         %s, %s, %s, %s,
                         %s, %s, %s, %s, %s, 
-                        %s, %s, %s, %s, %s, %s, NOW(), NOW()
+                        %s, %s, %s, %s, %s, %s, %s, %s
                         )
 
                         ON DUPLICATE KEY UPDATE
@@ -123,6 +123,8 @@ def process_events(events,userID,groupID,computerID,dbConfig):
                         event.get("ServerIP", 0),
                         event.get("Parameters", {}).get("OldTargetUserName", 0),
                         event.get("Parameters", {}).get("NewTargetUserName", 0),
+                        timeCreated,
+                        timeCreated
                     ))
 
                     # print(event.get("EventID", 0))
@@ -141,7 +143,7 @@ def process_events(events,userID,groupID,computerID,dbConfig):
                         %s, %s, %s, %s, %s, 
                         %s, %s, %s,
                         %s, %s, %s, %s,
-                        %s, %s, %s, %s, %s, NOW(), NOW()
+                        %s, %s, %s, %s, %s, %s, %s
                         )
 
                         ON DUPLICATE KEY UPDATE
@@ -165,6 +167,8 @@ def process_events(events,userID,groupID,computerID,dbConfig):
                         event.get("Parameters", {}).get("MemberName", 0),
                         event.get("Parameters", {}).get("MemberSid", 0),
                         event.get("Parameters", {}).get("GroupTypeChange", 0),
+                        timeCreated,
+                        timeCreated
                     ))
             elif eventID in computerID:
                     sql = """
@@ -188,7 +192,7 @@ def process_events(events,userID,groupID,computerID,dbConfig):
                         %s, %s, %s, %s,
                         %s, %s, %s, %s, %s,
                         %s, %s, %s, %s,
-                        NOW(), NOW()
+                        %s, %s
                         )
 
                         ON DUPLICATE KEY UPDATE
@@ -229,6 +233,8 @@ def process_events(events,userID,groupID,computerID,dbConfig):
                         event.get("serverSid", 0),
                         event.get("serverName", 0),
                         event.get("serverIp", 0),
+                        timeCreated,
+                        timeCreated
                     ))
 
         except Exception as e:
