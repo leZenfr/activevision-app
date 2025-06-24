@@ -28,8 +28,6 @@ return new class extends Migration
             $table->string('serverSid')->nullable();
             $table->string('serverName')->nullable();
             $table->string('serverIp')->nullable();
-            $table->string('hostname')->nullable();
-            $table->string('ipAddress')->nullable();
 
             $table->string('memberName')->nullable();
             $table->string('memberSid')->nullable();
