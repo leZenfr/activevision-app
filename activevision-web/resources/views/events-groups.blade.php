@@ -17,6 +17,8 @@
                                 <th class="border border-gray-300 px-4 py-2 text-left">Log ID</th>
                                 <th class="border border-gray-300 px-4 py-2 text-left">Nom de l'Événement</th>
                                 <th class="border border-gray-300 px-4 py-2 text-left">Nom du Groupe</th>
+                                <th class="border border-gray-300 px-4 py-2 text-left">IP du serveur</th>
+                                <th class="border border-gray-300 px-4 py-2 text-left">Nom du serveur</th>
                                 <th class="border border-gray-300 px-4 py-2 text-left">Date</th>
                                 <th class="border border-gray-300 px-4 py-2 text-left">Actions</th>
                             </tr>
@@ -29,6 +31,8 @@
                                         {{ $log->identifiedLog->event->titre ?? 'Non spécifié' }}
                                     </td>
                                     <td class="border border-gray-300 px-4 py-2">{{ $log->targetUserName ?? 'Non spécifié' }}</td>
+                                    <td class="border border-gray-300 px-4 py-2">{{ $log->serverIp ?? 'Non spécifiée' }}</td>
+                                    <td class="border border-gray-300 px-4 py-2">{{ $log->serverName ?? 'Non spécifié' }}</td>
                                     <td class="border border-gray-300 px-4 py-2">{{ $log->created_at->format('d/m/Y H:i') }}</td>
                                     <td class="border border-gray-300 px-4 py-2">
                                         <a href="{{ route('events.groups.show', $log->groupLogId) }}" class="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600">
