@@ -44,8 +44,11 @@ return new class extends Migration
             $table->string('dnsHostName')->nullable();
             $table->string('servicePrincipalNames')->nullable();
             $table->string('service1')->nullable();
-            $table->string('hostname')->nullable();
-            $table->string('ipAddress')->nullable();
+
+            $table->string('serverSid')->nullable();
+            $table->string('serverName')->nullable();
+            $table->string('serverIp')->nullable();
+            
             $table->timestamps();
         });
     }

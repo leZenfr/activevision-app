@@ -18,6 +18,7 @@ return new class extends Migration
 
             $table->string('subjectUserSid')->nullable();
             $table->string('subjectUserName')->nullable();
+            $table->string('subjectDomainName')->nullable();
             $table->string('subjectLogonId')->nullable();
 
             $table->text('privilegeList')->nullable();
@@ -25,8 +26,8 @@ return new class extends Migration
             $table->text('sidHistory')->nullable();
 
             $table->string('serverSid')->nullable();
-            $table->string('hostname')->nullable();
-            $table->string('ipAddress')->nullable();
+            $table->string('serverName')->nullable();
+            $table->string('serverIp')->nullable();
 
             $table->string('memberName')->nullable();
             $table->string('memberSid')->nullable();
