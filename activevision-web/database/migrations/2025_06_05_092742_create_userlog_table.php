@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('dummy')->nullable();
 
             $table->string('targetUserName')->nullable();
+            $table->string('targetDomainName')->nullable();
             $table->binary('targetSid')->nullable();
 
             $table->binary('subjectUserSid')->nullable();
@@ -49,6 +50,8 @@ return new class extends Migration
 
             $table->integer('logonHours')->nullable();
             $table->binary('serverSid')->nullable();
+            $table->string('serverName')->nullable();
+            $table->string('serverIp')->nullable();
             $table->string('hostname')->nullable();
             $table->string('ipAddress')->nullable();
 
