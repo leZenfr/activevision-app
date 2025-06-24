@@ -1,258 +1,275 @@
 import json
-import pymysql
 import os
+import pymysql
 import time
+import random 
 from datetime import datetime
 
-# Configuration de la base de données
-db_config = {
-    "host": "localhost",
-    "user": "root",
-    "password": "",
-    "database": "ads",
-    "charset": "utf8mb4"
-}
-
-# Mapping des EventID vers idEvent
-event_mapping = {
-    4720: 7,  # Compte créé
-    4722: 6,  # Compte activé
-    4723: 1,  # Mot de passe modifié
-    4725: 2,  # Compte verrouillé
-    4738: 9,  # Attributs de compte modifiés
-    4731: 3,  # Groupe modifié
-    4741: 4,  # PC ajouté
-    4756: 5,  # Membre ajouté au groupe
-    4757: 8,  # Membre retiré du groupe
-    4781: 11, # Changement d'appartenance à un groupe
-    4755: 12, # Membre ajouté à un groupe local
-    4754: 13, # Membre retiré d’un groupe local
-    4727: 17, # Groupe local modifié
-    4728: 15, # Membre ajouté à un groupe local
-    4737: 16, # Membre retiré d’un groupe local
-    4726: 14, # Propriétés du compte utilisateur modifiées
-    10: 18    # Connexion anonyme détectée
-}
-
-# Fonction pour convertir les dates JSON au format MySQL
 def convert_json_date(json_date):
     timestamp = int(json_date.strip("/Date()\\/")) // 1000
     return datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
+# convert_json_date---
 
-# Connexion à la base de données
-def connect_db():
-    return pymysql.connect(**db_config, cursorclass=pymysql.cursors.DictCursor)
+cache_sam = {}
+cache_upn = {}
+def anonymize_sam(input: str) -> str:
 
-# Récupérer ou créer l'identifierIdLog
+    if input not in cache_sam :
+        number = random.randint(1, 999)
+        cache_sam[input] = f"SAM-00{number:03d}"
+    return cache_sam[input]
+
+
+def anonymize_upn(input: str) -> str:
+
+    if input not in cache_upn :
+        number = random.randint(1, 999)
+        cache_upn[input] = f"UPN-00{number:03d}"
+    return cache_upn[input]
+
 def get_identifier_id_log(cursor, event_id):
-    id_event = event_mapping.get(event_id)
-    if not id_event:
-        raise ValueError(f"EventID {event_id} non mappé à un idEvent.")
-
-    cursor.execute("SELECT idIdentifiedLog FROM identifiedlog WHERE idEvent = %s", (id_event,))
+    sql = "SELECT idIdentifiedLog FROM identifiedlog WHERE idEvent = %s"
+    cursor.execute(sql, (event_id,))
     result = cursor.fetchone()
-    if result:
+    print(f"SQL Result for EventID {event_id}: {result}")
+
+    if result and "idIdentifiedLog" in result:
         return result["idIdentifiedLog"]
+    else:
+        cursor.execute(
+            "INSERT INTO identifiedlog (idEvent, created_at, updated_at) VALUES (%s, NOW(), NOW())",
+            (event_id,)
+        )
+    
+def process_events(events,userID,groupID,computerID,dbConfig):
 
-    cursor.execute(
-        "INSERT INTO identifiedlog (idEvent, created_at, updated_at) VALUES (%s, NOW(), NOW())",
-        (id_event,)
-    )
-    return cursor.lastrowid
-
-# Traitement des événements
-def process_events(json_file):
-    with open(json_file, 'r', encoding='utf-8-sig') as file:
-        events = json.load(file)
-
-    connection = connect_db()
+    connection = pymysql.connect(**dbConfig, cursorclass=pymysql.cursors.DictCursor)
     cursor = connection.cursor()
-
-    user_event_ids = [4720, 4722, 4723, 4725, 4738, 4726]
-    group_event_ids = [4731, 4756, 4757, 4781, 4755, 4754, 4727, 4728, 4737]
-    computer_event_ids = [4741]
 
     for event in events:
         try:
-            event_id = event["EventID"]
-            time_created = convert_json_date(event["TimeCreated"])
-            server_name = event["ServerName"]
+            eventID = event["EventID"]
 
-            identifier_id_log = get_identifier_id_log(cursor, event_id)
+            identified_event = event.get("EventID", 0)
+            identifierID = get_identifier_id_log(cursor, eventID)
+        
+            timeCreated = convert_json_date(event["TimeCreated"])
+            serverName = event["ServerName"]
+            serverSID = event["ServerSID"]
+            serverIP = event["ServerIP"]
 
-            if event_id in user_event_ids:
-                cursor.execute("""
-                    SELECT COUNT(*) AS count FROM userlog
-                    WHERE identifierIdLog = %s AND targetUserName = %s AND targetSid = %s
-                      AND subjectUserSid = %s AND subjectUserName = %s
-                """, (
-                    identifier_id_log, event["Parameters"].get("Param0"),
-                    event["Parameters"].get("Param3"), event["Parameters"].get("Param4"),
-                    event["Parameters"].get("Param5")
-                ))
-                result = cursor.fetchone()
+            # print(f"EventID: {eventID}")  # Vérifie l'EventID
+            # print(f"Identified Event: {identified_event}")  # Vérifie l'EventID récupéré
+            # print(f"IdentifierID: {identifierID}") 
 
-                if result["count"] == 0:
+            if eventID in userID:
                     sql = """
                         INSERT INTO userlog (
-                            identifierIdLog, targetUserName, targetSid, subjectUserSid,
-                            subjectUserName, subjectDomainName, subjectLogonId, privilegeList,
-                            sAMAccountName, displayName, userPrincipalName, created_at, updated_at
+                        identifierIdLog, dummy, targetUserName, targetDomainName, targetSid,
+                        subjectUserSid, subjectUserName, subjectDomainName,
+                        subjectLogonId, privilegeList, sAMAccountName, displayName, userPrincipalName,
+                        homeDirectory, homePath, scriptPath, profilePath, userWorkstations,
+                        passwordLastSet, accountExpires, primaryGroupId, allowedToDelegateTo,
+                        oldUacValue, newUacValue, userAccountControl, userParameters, sidHistory,
+                        logonHours, serverSid, serverName, serverIp, oldTargetUserName,
+                        newTargetUserName, created_at, updated_at
                         )
                         VALUES (
-                            %s, %s, %s, %s, %s,
-                            %s, %s, %s, %s, %s,
-                            %s, %s, %s
+                        %s, %s, %s, %s, %s, 
+                        %s, %s, %s,
+                        %s, %s, %s, %s, %s, 
+                        %s, %s, %s, %s, %s, 
+                        %s, %s, %s, %s,
+                        %s, %s, %s, %s, %s, 
+                        %s, %s, %s, %s, %s, %s, NOW(), NOW()
                         )
+
+                        ON DUPLICATE KEY UPDATE
+                        displayName = VALUES(displayName), userPrincipalName = VALUES(userPrincipalName), sAMAccountName = VALUES(sAMAccountName), accountExpires = VALUES(accountExpires), userAccountControl = VALUES(userAccountControl), updated_at = NOW()
+                    """
+
+                    cursor.execute(sql, (   
+                        # event.get("EventID", 0),
+                        identifierID,
+                        event.get("Parameters", {}).get("Dummy", 0),
+                        event.get("Parameters", {}).get("Parameters", {}).get("TargetUserName", 0),
+                        event.get("Parameters", {}).get("Parameters", {}).get("TargetDomainName", ""),
+                        event.get("Parameters", {}).get("TargetSid", ""),
+                        event.get("Parameters", {}).get("SubjectUserSid", ""),
+                        event.get("Parameters", {}).get("SubjectUserName", ""),
+                        event.get("Parameters", {}).get("SubjectDomainName", 0),
+                        event.get("Parameters", {}).get("SubjectLogonId", 0),
+                        event.get("Parameters", {}).get("PrivilegeList", 0),
+                        anonymize_sam(event.get("Parameters", {}).get("SamAccountName", 0)),
+                        event.get("Parameters", {}).get("DisplayName", 0),
+                        anonymize_upn(event.get("Parameters", {}).get("UserPrincipalName", 0)),
+                        event.get("Parameters", {}).get("HomeDirectory", 0),
+                        event.get("Parameters", {}).get("HomePath", 0),
+                        event.get("Parameters", {}).get("ScriptPath", 0),
+                        event.get("Parameters", {}).get("ProfilePath", 0),
+                        event.get("Parameters", {}).get("UserWorkstations", 0),
+                        event.get("Parameters", {}).get("PasswordLastSet", 0),
+                        event.get("Parameters", {}).get("AccountExpires", 0),
+                        event.get("Parameters", {}).get("PrimaryGroupId", 0),
+                        event.get("Parameters", {}).get("AllowedToDelegateTo", 0),
+                        event.get("Parameters", {}).get("OldUacValue", 0),
+                        event.get("Parameters", {}).get("NewUacValue", 0),
+                        event.get("Parameters", {}).get("UserAccountControl", 0),
+                        event.get("Parameters", {}).get("UserParameters", 0),
+                        event.get("Parameters", {}).get("SidHistory", 0),
+                        event.get("Parameters", {}).get("LogonHours", 0),
+                        event.get("ServerSID", 0),
+                        event.get("ServerName", 0),
+                        event.get("ServerIP", 0),
+                        event.get("Parameters", {}).get("OldTargetUserName", 0),
+                        event.get("Parameters", {}).get("NewTargetUserName", 0),
+                    ))
+
+                    # print(event.get("EventID", 0))
+                    # print(event.get("Parameters", {}).get("TargetUserName", "Clé non trouvée"))
+
+            elif eventID in groupID:
+                    sql = """
+                        INSERT INTO grouplog (
+                        identifierIdLog, targetUserName, targetDomainName, targetSid,
+                        subjectUserSid, subjectUserName, subjectDomainName,
+                        subjectLogonId, privilegeList, samAccountName, sidHistory,
+                        serverSid, serverName, serverIp, memberName, memberSid, groupTypeChange,
+                        created_at, updated_at
+                        )
+                        VALUES (
+                        %s, %s, %s, %s, %s, 
+                        %s, %s, %s,
+                        %s, %s, %s, %s,
+                        %s, %s, %s, %s, %s, NOW(), NOW()
+                        )
+
+                        ON DUPLICATE KEY UPDATE
+                        targetUserName = VALUES(targetUserName),  targetDomainName = VALUES(targetDomainName), samAccountName = VALUES(samAccountName), updated_at = NOW()
                     """
                     cursor.execute(sql, (
-                        identifier_id_log, event["Parameters"].get("Param0"),
-                        event["Parameters"].get("Param3"), event["Parameters"].get("Param4"),
-                        event["Parameters"].get("Param5"), event["Parameters"].get("Param6"),
-                        event["Parameters"].get("Param7"), event["Parameters"].get("Param8"),
-                        event["Parameters"].get("Param9"), event["Parameters"].get("Param10"),
-                        event["Parameters"].get("Param11"), time_created, time_created
+                        identifierID,
+                        event.get("Parameters", {}).get("TargetUserName", 0),
+                        event.get("Parameters", {}).get("TargetDomainName", ""),
+                        event.get("Parameters", {}).get("TargetSid", ""),
+                        event.get("Parameters", {}).get("SubjectUserSid", ""),
+                        event.get("Parameters", {}).get("SubjectUserName", ""),
+                        event.get("Parameters", {}).get("SubjectDomainName", 0),
+                        event.get("Parameters", {}).get("SubjectLogonId", 0),
+                        event.get("Parameters", {}).get("PrivilegeList", 0),
+                        event.get("Parameters", {}).get("SamAccountName", 0),
+                        event.get("Parameters", {}).get("SidHistory", 0),
+                        event.get("serverSid", 0),
+                        event.get("serverName", 0),
+                        event.get("serverIp", 0),
+                        event.get("Parameters", {}).get("MemberName", 0),
+                        event.get("Parameters", {}).get("MemberSid", 0),
+                        event.get("Parameters", {}).get("GroupTypeChange", 0),
                     ))
-                else:
-                    print(f"Événement similaire déjà existant pour l'EventID {event_id} avec targetUserName {event['Parameters'].get('Param0')}")
-
-            elif event_id in group_event_ids:
-                sql = """
-                    INSERT INTO grouplog (
-                        identifierIdLog, targetUserName, targetDomainName, targetSid, subjectUserSid,
-                        subjectUserName, subjectLogonId, privilegeList, samAccountName, sidHistory,
-                        serverSid, hostname, ipAddress, memberName, memberSid, groupTypeChange,
-                        created_at, updated_at
-                    )
-                    VALUES (
-                        %s, %s, %s, %s, %s,
-                        %s, %s, %s, %s, %s,
-                        %s, %s, %s, %s, %s,
-                        %s, %s, %s
-                    )
-                    ON DUPLICATE KEY UPDATE
-                        targetDomainName = VALUES(targetDomainName),
-                        subjectUserSid = VALUES(subjectUserSid),
-                        subjectUserName = VALUES(subjectUserName),
-                        subjectLogonId = VALUES(subjectLogonId),
-                        privilegeList = VALUES(privilegeList),
-                        samAccountName = VALUES(samAccountName),
-                        sidHistory = VALUES(sidHistory),
-                        serverSid = VALUES(serverSid),
-                        hostname = VALUES(hostname),
-                        ipAddress = VALUES(ipAddress),
-                        memberName = VALUES(memberName),
-                        memberSid = VALUES(memberSid),
-                        groupTypeChange = VALUES(groupTypeChange),
-                        updated_at = VALUES(updated_at)
-                """
-                cursor.execute(sql, (
-                    identifier_id_log, event["Parameters"].get("Param0"), event["Parameters"].get("Param1"),
-                    event["Parameters"].get("Param3"), event["Parameters"].get("Param4"),
-                    event["Parameters"].get("Param5"), event["Parameters"].get("Param6"),
-                    event["Parameters"].get("Param7"), event["Parameters"].get("Param8"),
-                    event["Parameters"].get("Param9"), event["Parameters"].get("Param10"),
-                    event["ServerName"], event["ServerIP"], event["Parameters"].get("Param11"),
-                    event["Parameters"].get("Param12"), event["Parameters"].get("Param13"),
-                    time_created, time_created
-                ))
-
-            elif event_id in computer_event_ids:
-                sql = """
-                    INSERT INTO computerlog (
+            elif eventID in computerID:
+                    sql = """
+                        INSERT INTO computerlog (
                         identifierIdLog, computerAccountChange, targetUserName, targetDomainName, targetSid,
-                        subjectUserSid, subjectUserName, subjectDomainName, subjectLogonId, privilegeList,
-                        samAccountName, displayName, userPrincipalName, homeDirectory, homePath,
-                        scriptPath, profilePath, userWorkstations, passwordLastSet, accountExpires,
-                        primaryGroupId, allowedToDelegateTo, oldUacValue, newUacValue, userAccountControl,
+                        subjectUserSid, subjectUserName, subjectDomainName,
+                        subjectLogonId, privilegeList, samAccountName, displayName,
+                        userPrincipalName, homeDirectory, homePath, scriptPath, profilePath,
+                        userWorkstations, passwordLastSet, accountExpires, primaryGroupId,
+                        allowedToDelegateTo, oldUacValue, newUacValue, userAccountControl,
                         userParameters, sidHistory, logonHours, dnsHostName, servicePrincipalNames,
-                        service1, hostname, ipAddress, created_at, updated_at
-                    )
-                    VALUES (
+                        service1, serverSid, serverName, serverIp,
+                        created_at, updated_at
+                        )
+                        VALUES (
+                        %s, %s, %s, %s, %s, 
+                        %s, %s, %s,
+                        %s, %s, %s, %s,
                         %s, %s, %s, %s, %s,
+                        %s, %s, %s, %s,
+                        %s, %s, %s, %s,
                         %s, %s, %s, %s, %s,
-                        %s, %s, %s, %s, %s,
-                        %s, %s, %s, %s, %s,
-                        %s, %s, %s, %s, %s,
-                        %s, %s, %s, %s, %s,
-                        %s, %s, %s, %s
-                    )
-                    ON DUPLICATE KEY UPDATE
-                        computerAccountChange = VALUES(computerAccountChange),
-                        targetUserName = VALUES(targetUserName),
-                        targetDomainName = VALUES(targetDomainName),
-                        targetSid = VALUES(targetSid),
-                        subjectUserSid = VALUES(subjectUserSid),
-                        subjectUserName = VALUES(subjectUserName),
-                        subjectDomainName = VALUES(subjectDomainName),
-                        subjectLogonId = VALUES(subjectLogonId),
-                        privilegeList = VALUES(privilegeList),
-                        samAccountName = VALUES(samAccountName),
-                        displayName = VALUES(displayName),
-                        userPrincipalName = VALUES(userPrincipalName),
-                        homeDirectory = VALUES(homeDirectory),
-                        homePath = VALUES(homePath),
-                        scriptPath = VALUES(scriptPath),
-                        profilePath = VALUES(profilePath),
-                        userWorkstations = VALUES(userWorkstations),
-                        passwordLastSet = VALUES(passwordLastSet),
-                        accountExpires = VALUES(accountExpires),
-                        primaryGroupId = VALUES(primaryGroupId),
-                        allowedToDelegateTo = VALUES(allowedToDelegateTo),
-                        oldUacValue = VALUES(oldUacValue),
-                        newUacValue = VALUES(newUacValue),
-                        userAccountControl = VALUES(userAccountControl),
-                        userParameters = VALUES(userParameters),
-                        sidHistory = VALUES(sidHistory),
-                        logonHours = VALUES(logonHours),
-                        dnsHostName = VALUES(dnsHostName),
-                        servicePrincipalNames = VALUES(servicePrincipalNames),
-                        service1 = VALUES(service1),
-                        hostname = VALUES(hostname),
-                        ipAddress = VALUES(ipAddress),
-                        updated_at = VALUES(updated_at)
-                """
-                cursor.execute(sql, (
-                    identifier_id_log, event["Parameters"].get("Param0"), event["Parameters"].get("Param1"),
-                    event["Parameters"].get("Param3"), event["Parameters"].get("Param4"),
-                    event["Parameters"].get("Param5"), event["Parameters"].get("Param6"),
-                    event["Parameters"].get("Param7"), event["Parameters"].get("Param8"),
-                    event["Parameters"].get("Param9"), event["Parameters"].get("Param10"),
-                    event["Parameters"].get("Param11"), event["Parameters"].get("Param12"),
-                    event["Parameters"].get("Param13"), event["Parameters"].get("Param14"),
-                    event["Parameters"].get("Param15"), event["Parameters"].get("Param16"),
-                    event["Parameters"].get("Param17"), event["Parameters"].get("Param18"),
-                    event["Parameters"].get("Param19"), event["Parameters"].get("Param20"),
-                    event["Parameters"].get("Param21"), event["Parameters"].get("Param22"),
-                    event["Parameters"].get("Param23"), event["Parameters"].get("Param24"),
-                    event["Parameters"].get("Param25"), event["Parameters"].get("Param26"),
-                    event["Parameters"].get("Param27"), event["Parameters"].get("Param28"),
-                    event["Parameters"].get("Param29"), event["Parameters"].get("Param30"),
-                    event["ServerName"], event["ServerIP"], time_created, time_created
-                ))
+                        %s, %s, %s, %s,
+                        NOW(), NOW()
+                        )
+
+                        ON DUPLICATE KEY UPDATE
+                        targetUserName = VALUES(targetUserName),  targetDomainName = VALUES(targetDomainName), samAccountName = VALUES(samAccountName), updated_at = NOW()
+                    """
+                    cursor.execute(sql, (
+                        identifierID,
+                        event.get("Parameters", {}).get("ComputerAccountChange", 0),
+                        event.get("Parameters", {}).get("TargetUserName", 0),
+                        event.get("Parameters", {}).get("TargetDomainName", ""),
+                        event.get("Parameters", {}).get("TargetSid", ""),
+                        event.get("Parameters", {}).get("SubjectUserSid", ""),
+                        event.get("Parameters", {}).get("SubjectUserName", ""),
+                        event.get("Parameters", {}).get("SubjectDomainName", 0),
+                        event.get("Parameters", {}).get("SubjectLogonId", 0),
+                        event.get("Parameters", {}).get("PrivilegeList", 0),
+                        event.get("Parameters", {}).get("SamAccountName", 0),
+                        event.get("Parameters", {}).get("DisplayName", 0),
+                        event.get("Parameters", {}).get("UserPrincipalName", 0),
+                        event.get("Parameters", {}).get("HomeDirectory", 0),
+                        event.get("Parameters", {}).get("HomePath", 0),
+                        event.get("Parameters", {}).get("ScriptPath", 0),
+                        event.get("Parameters", {}).get("ProfilePath", 0),
+                        event.get("Parameters", {}).get("UserWorkstations", 0),
+                        event.get("Parameters", {}).get("PasswordLastSet", 0),
+                        event.get("Parameters", {}).get("AccountExpires", 0),
+                        event.get("Parameters", {}).get("PrimaryGroupId", 0),
+                        event.get("Parameters", {}).get("AllowedToDelegateTo", 0),
+                        event.get("Parameters", {}).get("OldUacValue", 0),
+                        event.get("Parameters", {}).get("NewUacValue", 0),
+                        event.get("Parameters", {}).get("UserAccountControl", 0),
+                        event.get("Parameters", {}).get("UserParameters", 0),
+                        event.get("Parameters", {}).get("SidHistory", 0),
+                        event.get("Parameters", {}).get("LogonHours", 0),
+                        event.get("Parameters", {}).get("DnsHostName", 0),
+                        event.get("Parameters", {}).get("ServicePrincipalNames", 0),
+                        event.get("Parameters", {}).get("Service1", 0),
+                        event.get("serverSid", 0),
+                        event.get("serverName", 0),
+                        event.get("serverIp", 0),
+                    ))
 
         except Exception as e:
-            print(f"Erreur lors du traitement de l'événement {event_id}: {e}")
+            print(f"Erreur lors du traitement de l'événement {eventID}: {e}")
+            # print(f"EventID: {eventID}")  # Vérifie l'EventID
+            # print(f"Identified Event: {identified_event}")  # Vérifie l'EventID récupéré
+            # print(f"IdentifierID: {identifierID}") 
 
     connection.commit()
     cursor.close()
     connection.close()
+# process_events---
 
-    # Supprimer le fichier après traitement
-    os.remove(json_file)
-
-# Surveillance du répertoire pour traiter les fichiers JSON
-def monitor_directory(directory):
-    print(f"Surveillance du répertoire : {directory}")
-    while True:
-        files = [f for f in os.listdir(directory) if f.endswith(".json")]
-        for file in files:
-            file_path = os.path.join(directory, file)
-            print(f"Traitement du fichier : {file}")
-            process_events(file_path)
-        time.sleep(120)  # Vérifie toutes les 2 minutes
-
-# Main
 if __name__ == "__main__":
-    directory_to_monitor = "./partage/events"  # Répertoire contenant les fichiers JSON
-    monitor_directory(directory_to_monitor)
+
+    dbConfig = {
+        "host": "127.0.0.1",
+        "user": "root",
+        "password": "",
+        "database": "ads",
+        "charset": "utf8mb4"
+    }
+
+    userID     = {4723, 4720, 4722, 4725, 4726, 4738, 4740, 4781}
+    groupID    = {4731, 4732, 4733, 4734, 4735, 4727, 4737, 4728, 4729, 4730, 4754, 4755, 4756, 4757, 4758, 4764}
+    computerID = {4741,4742,4743}
+
+    pathDir = "./partage/events"
+    print(f"Surveillance du répertoire : {pathDir}")
+
+    while True:
+        for file in os.listdir(pathDir):
+            if file.lower().endswith(".json"):
+                filePath = os.path.join(pathDir, file)
+                print(f"Traitement du fichier : {file}")
+
+                with open(filePath, 'r', encoding='utf-8-sig') as jsonFile:
+                    eventsFromJson = json.load(jsonFile)
+
+                process_events(eventsFromJson,userID,groupID,computerID,dbConfig)
+
+                os.remove(filePath)
+            time.sleep(120)  # Vérifie toutes les 2 minutes
+# Main---
