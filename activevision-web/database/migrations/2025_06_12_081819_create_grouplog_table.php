@@ -26,6 +26,8 @@ return new class extends Migration
             $table->text('sidHistory')->nullable();
 
             $table->string('serverSid')->nullable();
+            $table->string('serverName')->nullable();
+            $table->string('serverIp')->nullable();
             $table->string('hostname')->nullable();
             $table->string('ipAddress')->nullable();
 
