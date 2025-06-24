@@ -18,6 +18,7 @@ return new class extends Migration
 
             $table->string('subjectUserSid')->nullable();
             $table->string('subjectUserName')->nullable();
+            $table->string('subjectDomainName')->nullable();
             $table->string('subjectLogonId')->nullable();
 
             $table->text('privilegeList')->nullable();
