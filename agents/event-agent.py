@@ -10,22 +10,22 @@ def convert_json_date(json_date):
     return datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
 # convert_json_date---
 
-cache_sam = {}
-cache_upn = {}
-def anonymize_sam(input: str) -> str:
+# cache_sam = {}
+# cache_upn = {}
+# def anonymize_sam(input: str) -> str:
 
-    if input not in cache_sam :
-        number = random.randint(1, 999)
-        cache_sam[input] = f"SAM-00{number:03d}"
-    return cache_sam[input]
+#     if input not in cache_sam :
+#         number = random.randint(1, 999)
+#         cache_sam[input] = f"SAM-00{number:03d}"
+#     return cache_sam[input]
 
 
-def anonymize_upn(input: str) -> str:
+# def anonymize_upn(input: str) -> str:
 
-    if input not in cache_upn :
-        number = random.randint(1, 999)
-        cache_upn[input] = f"UPN-00{number:03d}"
-    return cache_upn[input]
+#     if input not in cache_upn :
+#         number = random.randint(1, 999)
+#         cache_upn[input] = f"UPN-00{number:03d}"
+#     return cache_upn[input]
 
 def get_identifier_id_log(cursor, event_id):
     sql = "SELECT idIdentifiedLog FROM identifiedlog WHERE idEvent = %s"
@@ -81,7 +81,7 @@ def process_events(events,userID,groupID,computerID,dbConfig):
                         %s, %s, %s, %s, %s, 
                         %s, %s, %s, %s,
                         %s, %s, %s, %s, %s, 
-                        %s, %s, %s, %s, %s, %s, %s, %s
+                        %s, %s, %s, %s, %s, %s, NOW(), NOW()
                         )
 
                         ON DUPLICATE KEY UPDATE
@@ -100,9 +100,9 @@ def process_events(events,userID,groupID,computerID,dbConfig):
                         event.get("Parameters", {}).get("SubjectDomainName", 0),
                         event.get("Parameters", {}).get("SubjectLogonId", 0),
                         event.get("Parameters", {}).get("PrivilegeList", 0),
-                        anonymize_sam(event.get("Parameters", {}).get("SamAccountName", 0)),
+                        event.get("Parameters", {}).get("SamAccountName", 0),
                         event.get("Parameters", {}).get("DisplayName", 0),
-                        anonymize_upn(event.get("Parameters", {}).get("UserPrincipalName", 0)),
+                        event.get("Parameters", {}).get("UserPrincipalName", 0),
                         event.get("Parameters", {}).get("HomeDirectory", 0),
                         event.get("Parameters", {}).get("HomePath", 0),
                         event.get("Parameters", {}).get("ScriptPath", 0),
@@ -123,8 +123,6 @@ def process_events(events,userID,groupID,computerID,dbConfig):
                         event.get("ServerIP", 0),
                         event.get("Parameters", {}).get("OldTargetUserName", 0),
                         event.get("Parameters", {}).get("NewTargetUserName", 0),
-                        timeCreated,
-                        timeCreated
                     ))
 
                     # print(event.get("EventID", 0))
@@ -143,7 +141,7 @@ def process_events(events,userID,groupID,computerID,dbConfig):
                         %s, %s, %s, %s, %s, 
                         %s, %s, %s,
                         %s, %s, %s, %s,
-                        %s, %s, %s, %s, %s, %s, %s
+                        %s, %s, %s, %s, %s, NOW(), NOW()
                         )
 
                         ON DUPLICATE KEY UPDATE
@@ -167,8 +165,6 @@ def process_events(events,userID,groupID,computerID,dbConfig):
                         event.get("Parameters", {}).get("MemberName", 0),
                         event.get("Parameters", {}).get("MemberSid", 0),
                         event.get("Parameters", {}).get("GroupTypeChange", 0),
-                        timeCreated,
-                        timeCreated
                     ))
             elif eventID in computerID:
                     sql = """
@@ -192,7 +188,7 @@ def process_events(events,userID,groupID,computerID,dbConfig):
                         %s, %s, %s, %s,
                         %s, %s, %s, %s, %s,
                         %s, %s, %s, %s,
-                        %s, %s
+                        NOW(), NOW()
                         )
 
                         ON DUPLICATE KEY UPDATE
@@ -233,8 +229,6 @@ def process_events(events,userID,groupID,computerID,dbConfig):
                         event.get("serverSid", 0),
                         event.get("serverName", 0),
                         event.get("serverIp", 0),
-                        timeCreated,
-                        timeCreated
                     ))
 
         except Exception as e:

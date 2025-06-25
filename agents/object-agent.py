@@ -2,6 +2,7 @@ import json
 import pymysql
 import os
 import time
+import random
 from datetime import datetime
 
 def convert_json_date(json_date):
@@ -9,9 +10,33 @@ def convert_json_date(json_date):
     return datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
 # convert_json_date---
 
+cache_sam = {}
+cache_upn = {}
+def anonymize_sam(input: str) -> str:
+
+    if input not in cache_sam :
+        number = random.randint(1, 999)
+        cache_sam[input] = f"SAM-00{number:03d}"
+    return cache_sam[input]
+
+
+def anonymize_upn(input: str) -> str:
+
+    if "@" in input:
+        local_part, domain = input.split("@", 1)  
+        if local_part not in cache_upn:
+            number = random.randint(1, 999)
+            cache_upn[local_part] = f"UPN-00{number:03d}"  
+        return f"{cache_upn[local_part]}@{domain}"
+    else:
+        if input not in cache_upn :
+            number = random.randint(1, 999)
+            cache_upn[input] = f"UPN-00{number:03d}"
+        return cache_upn[input]
+
 def process_objects(objects,dbConfig):
 
-    connection = pymysql.connect(**dbConfig)
+    connection = pymysql.connect(**dbConfig, cursorclass=pymysql.cursors.DictCursor)
     cursor = connection.cursor()
 
     for sid, obj in objects.items():
@@ -21,19 +46,21 @@ def process_objects(objects,dbConfig):
             match objectClass:
                 case "user":
                     sql = """
-                        INSERT INTO ObjectUsers (objectSid, badPasswordTime, lastLogon, lockoutTime, displayName, userPrincipalName, sAMAccountName, distinguishedName, accountExpires, whenChanged, whenCreated, userAccountControl, created_at, updated_at)
+                        INSERT INTO ObjectUsers (objectSid, badPasswordTime,
+                        lastLogon, lockoutTime, displayName, userPrincipalName, sAMAccountName, distinguishedName, accountExpires, whenChanged, whenCreated, userAccountControl, created_at, updated_at)
                         VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, NOW(), NOW())
                         ON DUPLICATE KEY UPDATE
                         displayName = VALUES(displayName), userPrincipalName = VALUES(userPrincipalName), sAMAccountName = VALUES(sAMAccountName), distinguishedName = VALUES(distinguishedName), accountExpires = VALUES(accountExpires), whenChanged = VALUES(whenChanged), whenCreated = VALUES(whenCreated), userAccountControl = VALUES(userAccountControl), updated_at = NOW()
                     """
+                    anonymized_sam = anonymize_sam(obj.get("sAMAccountName", ""))
                     cursor.execute(sql, (
                         obj["objectSid"],
                         obj.get("badPasswordTime", 0),
                         obj.get("lastlogon", 0),
                         obj.get("lockoutTime", 0),
-                        obj.get("DisplayName", ""),
-                        obj.get("userPrincipalName", ""),
-                        obj.get("sAMAccountName", ""),
+                        anonymized_sam,
+                        anonymize_upn(obj.get("userPrincipalName", "")),
+                        anonymized_sam,
                         obj.get("distinguishedName", ""),
                         obj.get("accountExpires", 0),
                         convert_json_date(obj.get("whenChanged")),
@@ -42,7 +69,7 @@ def process_objects(objects,dbConfig):
                     ))
 
                 case "group":
-                    member = objectClass.get("member", [])
+                    member = obj.get("member", [])
                     member = json.dumps(member, ensure_ascii=False)
                     sql = """
                         INSERT INTO objectgroup (objectSid, member, distinguishedName, whenChanged, whenCreated, created_at, updated_at)
@@ -85,7 +112,7 @@ if __name__ == "__main__":
 
     dbConfig = {
         "host": "127.0.0.1",
-        "user": "",
+        "user": "root",
         "password": "",
         "database": "ads",
         "charset": "utf8mb4"
