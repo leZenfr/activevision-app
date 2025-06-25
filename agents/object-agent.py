@@ -34,6 +34,19 @@ def anonymize_upn(input: str) -> str:
             cache_upn[input] = f"UPN-00{number:03d}"
         return cache_upn[input]
 
+
+def filetime_to_datetime(filetime):
+    if not filetime or filetime == 0:
+        return None
+    EPOCH_AS_FILETIME = 116444736000000000  # 1970-01-01 as FILETIME
+    HUNDREDS_OF_NANOSECONDS = 10000000
+    try:
+        timestamp = (int(filetime) - EPOCH_AS_FILETIME) / HUNDREDS_OF_NANOSECONDS
+        return datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
+    except Exception:
+        return None
+
+
 def process_objects(objects,dbConfig):
 
     connection = pymysql.connect(**dbConfig, cursorclass=pymysql.cursors.DictCursor)
@@ -47,8 +60,8 @@ def process_objects(objects,dbConfig):
                 case "user":
                     sql = """
                         INSERT INTO ObjectUsers (objectSid, badPasswordTime,
-                        lastLogon, lockoutTime, displayName, userPrincipalName, sAMAccountName, distinguishedName, accountExpires, whenChanged, whenCreated, userAccountControl, created_at, updated_at)
-                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, NOW(), NOW())
+                        lastLogon, lockoutTime, displayName, userPrincipalName, sAMAccountName, distinguishedName, accountExpires, whenChanged, whenCreated, pwdLastSet, userAccountControl, created_at, updated_at)
+                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, NOW(), NOW())
                         ON DUPLICATE KEY UPDATE
                         displayName = VALUES(displayName), userPrincipalName = VALUES(userPrincipalName), sAMAccountName = VALUES(sAMAccountName), distinguishedName = VALUES(distinguishedName), accountExpires = VALUES(accountExpires), whenChanged = VALUES(whenChanged), whenCreated = VALUES(whenCreated), userAccountControl = VALUES(userAccountControl), updated_at = NOW()
                     """
@@ -65,6 +78,7 @@ def process_objects(objects,dbConfig):
                         obj.get("accountExpires", 0),
                         convert_json_date(obj.get("whenChanged")),
                         convert_json_date(obj.get("whenCreated")),
+                        filetime_to_datetime(obj.get("pwdLastSet", 0)),
                         obj.get("userAccountControl", 0)
                     ))
 
