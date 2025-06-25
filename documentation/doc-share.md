@@ -57,8 +57,13 @@ echo "dns-nameservers $ipServerAD"| sudo tee -a
 /etc/network/interfaces
 ```
 
+Puis ensuite il faut redémarrer le service `networking`
 ```
 sudo systemctl restart networking.service
+```
+
+## Étape 3 : Joindre le domaine et appliquer les droits au partage
+```
 net ads join -U "DLGUSER01"
 sudo mkdir /srv/partage
 sudo chmod 333 /srv/partage
