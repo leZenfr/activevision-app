@@ -1,0 +1,24 @@
+{
+
+        "S-1-5-21-379138679-3355780599-512868800-1132":  {
+                                                         "objectClass":  "user",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1132",
+                                                         "badPasswordTime":  0,
+                                                         "lastlogon":  0,
+                                                         "lockoutTime":  null,
+                                                         "DisplayName":  "dimitri puskas",
+                                                         "userPrincipalName":  "puskas@cat.love",
+                                                         "sAMAccountName":  "puskas",
+                                                         "title":  null,
+                                                         "l":  null,
+                                                         "postalCode":  null,
+                                                         "streetAddress":  null,
+                                                         "company":  null,
+                                                         "manager":  null,
+                                                         "distinguishedName":  "CN=dimitri puskas,CN=Users,DC=cat,DC=love",
+                                                         "accountExpires":  9223372036854775807,
+                                                         "whenChanged":  "\/Date(1750618670000)\/",
+                                                         "whenCreated":  "\/Date(1750618670000)\/",
+                                                         "userAccountControl":  512
+                                                     }
+}
