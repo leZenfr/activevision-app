@@ -32,6 +32,10 @@ sudo chmod +x start.sh
 sudo nano event-agent.py
 ```
 
+```
+sudo nano object-agent.py
+```
+
 Puis modifier les informations de la base dans le script.
 
 ```
