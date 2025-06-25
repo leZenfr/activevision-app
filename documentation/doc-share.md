@@ -10,8 +10,8 @@ SV = srv-ActiveV | 192.168.150.22
 
 ## Prérequis : Créer le répertoire du paratage
 ```
-mkdir -p /srv/partage/objects
-mkdir -p /srv/partage/events
+sudo mkdir -p /srv/partage/objects
+sudo mkdir -p /srv/partage/events
 ```
 
 ## Étape 1 : Installer les packages nécessaires et
