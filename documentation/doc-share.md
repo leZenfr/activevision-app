@@ -19,11 +19,13 @@ Pendant l'installation vous allez être invité à préciser votre nom de domain
 préciser votre serveur AD pour les deux prochaines entrées.
 ![Texte alternatif](img/configuration_kerberos_server.png "Configuration du serveur pour le 'realm' kerberos")
 
+## Étape 2 : Sauvegarder et configurer le fichier smb.conf
 ```
 sudo mv /etc/samba/smb.conf /etc/samba/smb.conf.back
-sudo nano /etc/samba/cmb.conf
+sudo nano /etc/samba/smb.conf
 ```
 
+Exemple de configuration pour le domaine **CAT.LOVE**
 
 **/etc/samba/smb.conf**
 ```
