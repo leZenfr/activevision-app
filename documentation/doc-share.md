@@ -14,10 +14,10 @@ sudo apt -y install winbind libpam-winbind libnss-winbind krb5-config samba
 ```
 
 Pendant l'installation vous allez être invité à préciser votre nom de domaine, **majuscule obligatoire** 
-![[PJ/Pasted image 20250622153500.png]]
+![Texte alternatif](img/configuration_kerberos_realm.png "Configuration du 'realm' kerberos")
 
 préciser votre serveur AD pour les deux prochaines entrées.
-![[PJ/Pasted image 20250622172857.png]]
+![Texte alternatif](img/configuration_kerberos_server.png "Configuration du serveur pour le 'realm' kerberos")
 
 ```
 sudo mv /etc/samba/smb.conf /etc/samba/smb.conf.back
