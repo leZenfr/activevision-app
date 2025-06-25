@@ -64,11 +64,12 @@ sudo systemctl restart networking.service
 
 ## Étape 3 : Joindre le domaine et appliquer les droits au partage
 ```
-net ads join -U "DLGUSER01"
-sudo mkdir /srv/partage
-sudo chmod 333 /srv/partage
+sudo net ads join -U "DLGUSER01"
 sudo mkdir /srv/partage/objects
 sudo mkdir /srv/partage/events
+sudo chmod 333 /srv/partage
+sudo chmod 333 /srv/partage/objects
+sudo chmod 333 /srv/partage/events
 systemctl restart winbind smbd nmbd
 ```
 
