@@ -32,7 +32,17 @@ sudo chmod +x start.sh
 sudo nano event-agent.py
 ```
 
-Puis modifier les informations de la base.
+Puis modifier les informations de la base dans le script.
+
+```
+    dbConfig = {
+        "host": "127.0.0.1",
+        "user": "VOTRE_UTILISATEUR",
+        "password": "VOTRE_MOT_DE_PASSE",
+        "database": "ads",
+        "charset": "utf8mb4"
+    }
+```
 
 ## Étape 4 : Exécuter les scripts dans l'ordre
 
