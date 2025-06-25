@@ -3,6 +3,7 @@
 **IMPORTANT :** il s'agit d'une documentation. Modifiez les paramètres en fonction de votre matériel et de vos exigences.
 
 AD = srv-shareflers.cat.love | 192.168.150.90
+
 SV = srv-ActiveV | 192.168.150.22
 
 ---
@@ -14,6 +15,7 @@ sudo apt -y install winbind libpam-winbind libnss-winbind krb5-config samba
 
 Pendant l'installation vous allez être invité à préciser votre nom de domaine, **majuscule obligatoire** 
 ![[PJ/Pasted image 20250622153500.png]]
+
 préciser votre serveur AD pour les deux prochaines entrées.
 ![[PJ/Pasted image 20250622172857.png]]
 
