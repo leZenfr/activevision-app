@@ -55,7 +55,7 @@
                                         <td class="border border-gray-300 px-4 py-2">{{ $log->created_at->format('d/m/Y H:i') }}</td>
                                         <td class="border border-gray-300 px-4 py-2">{{ $log->identifiedLog->event->titre ?? 'Non spécifié' }}</td>
                                         <td class="border border-gray-300 px-4 py-2">{{ $log->memberName ?? 'Non spécifié' }}</td>
-                                        <td class="border border-gray-300 px-4 py-2">{{ $log->ipAddress ?? 'Non spécifiée' }}</td>
+                                        <td class="border border-gray-300 px-4 py-2">{{ $log->serverIp ?? 'Non spécifiée' }}</td>
                                         <td class="border border-gray-300 px-4 py-2">{{ $log->groupTypeChange ?? 'Non spécifié' }}</td>
                                     </tr>
                                 @endforeach
