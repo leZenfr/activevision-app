@@ -23,6 +23,7 @@ return new class extends Migration {
             $table->timestamp('accountExpires')->nullable();
             $table->timestamp('whenChanged')->nullable();
             $table->timestamp('whenCreated')->nullable();
+            $table->timestamp('pwdLastSet')->nullable();
             $table->integer('userAccountControl')->nullable();
             $table->timestamps();
         });
