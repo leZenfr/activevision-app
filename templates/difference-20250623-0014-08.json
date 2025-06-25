@@ -1,0 +1,847 @@
+﻿{
+    "S-1-5-21-379138679-3355780599-512868800-1108":  {
+                                                         "objectClass":  "group",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1108",
+                                                         "member":  [
+
+                                                                    ],
+                                                         "distinguishedName":  "CN=PSO-Users-ChangeEvery3months,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750495711000)\/",
+                                                         "whenCreated":  "\/Date(1750495711000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1139":  {
+                                                         "objectClass":  "user",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1139",
+                                                         "badPasswordTime":  0,
+                                                         "lastlogon":  0,
+                                                         "lockoutTime":  null,
+                                                         "DisplayName":  "joijoi oijoi",
+                                                         "userPrincipalName":  "zoijdoidjoij@cat.love",
+                                                         "sAMAccountName":  "zoijdoidjoij",
+                                                         "title":  null,
+                                                         "l":  null,
+                                                         "postalCode":  null,
+                                                         "streetAddress":  null,
+                                                         "company":  null,
+                                                         "manager":  null,
+                                                         "distinguishedName":  "CN=joijoi oijoi,CN=Users,DC=cat,DC=love",
+                                                         "accountExpires":  9223372036854775807,
+                                                         "whenChanged":  "\/Date(1750623436000)\/",
+                                                         "whenCreated":  "\/Date(1750623436000)\/",
+                                                         "pwdLastSet":  0,
+                                                         "userAccountControl":  512
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-513":  {
+                                                        "objectClass":  "group",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-513",
+                                                        "member":  [
+
+                                                                   ],
+                                                        "distinguishedName":  "CN=Utilisateurs du domaine,CN=Users,DC=cat,DC=love",
+                                                        "whenChanged":  "\/Date(1750495480000)\/",
+                                                        "whenCreated":  "\/Date(1750495480000)\/"
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-520":  {
+                                                        "objectClass":  "group",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-520",
+                                                        "member":  [
+                                                                       "CN=Administrateur,CN=Users,DC=cat,DC=love"
+                                                                   ],
+                                                        "distinguishedName":  "CN=Propriétaires créateurs de la stratégie de groupe,CN=Users,DC=cat,DC=love",
+                                                        "whenChanged":  "\/Date(1750495480000)\/",
+                                                        "whenCreated":  "\/Date(1750495480000)\/"
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-514":  {
+                                                        "objectClass":  "group",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-514",
+                                                        "member":  [
+
+                                                                   ],
+                                                        "distinguishedName":  "CN=Invités du domaine,CN=Users,DC=cat,DC=love",
+                                                        "whenChanged":  "\/Date(1750495480000)\/",
+                                                        "whenCreated":  "\/Date(1750495480000)\/"
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-516":  {
+                                                        "objectClass":  "group",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-516",
+                                                        "member":  [
+
+                                                                   ],
+                                                        "distinguishedName":  "CN=Contrôleurs de domaine,CN=Users,DC=cat,DC=love",
+                                                        "whenChanged":  "\/Date(1750497368000)\/",
+                                                        "whenCreated":  "\/Date(1750495479000)\/"
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-1105":  {
+                                                         "objectClass":  "group",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1105",
+                                                         "member":  [
+                                                                        "CN=Administrateur,CN=Users,DC=cat,DC=love"
+                                                                    ],
+                                                         "distinguishedName":  "CN=PSO-EmergencyAccounts-Standard,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750495711000)\/",
+                                                         "whenCreated":  "\/Date(1750495711000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1142":  {
+                                                         "objectClass":  "group",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1142",
+                                                         "member":  [
+
+                                                                    ],
+                                                         "distinguishedName":  "CN=sdfh,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750629194000)\/",
+                                                         "whenCreated":  "\/Date(1750629194000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1124":  {
+                                                         "objectClass":  "computer",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1124",
+                                                         "logonCount":  16,
+                                                         "operatingSystem":  null,
+                                                         "distinguishedName":  "CN=HOST-002,CN=Computers,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750531346000)\/",
+                                                         "whenCreated":  "\/Date(1750531346000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1133":  {
+                                                         "objectClass":  "user",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1133",
+                                                         "badPasswordTime":  0,
+                                                         "lastlogon":  0,
+                                                         "lockoutTime":  null,
+                                                         "DisplayName":  "leboss ultime",
+                                                         "userPrincipalName":  "boss@cat.love",
+                                                         "sAMAccountName":  "boss",
+                                                         "title":  null,
+                                                         "l":  null,
+                                                         "postalCode":  null,
+                                                         "streetAddress":  null,
+                                                         "company":  null,
+                                                         "manager":  null,
+                                                         "distinguishedName":  "CN=leboss ultime,CN=Users,DC=cat,DC=love",
+                                                         "accountExpires":  9223372036854775807,
+                                                         "whenChanged":  "\/Date(1750621023000)\/",
+                                                         "whenCreated":  "\/Date(1750621022000)\/",
+                                                         "pwdLastSet":  133950946230595636,
+                                                         "userAccountControl":  512
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1122":  {
+                                                         "objectClass":  "computer",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1122",
+                                                         "logonCount":  9,
+                                                         "operatingSystem":  "pc-linux-gnu",
+                                                         "distinguishedName":  "CN=SRV-SMB,CN=Computers,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750517342000)\/",
+                                                         "whenCreated":  "\/Date(1750517341000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1131":  {
+                                                         "objectClass":  "user",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1131",
+                                                         "badPasswordTime":  0,
+                                                         "lastlogon":  0,
+                                                         "lockoutTime":  null,
+                                                         "DisplayName":  "patrice evra",
+                                                         "userPrincipalName":  "patrice@cat.love",
+                                                         "sAMAccountName":  "patrice",
+                                                         "title":  null,
+                                                         "l":  null,
+                                                         "postalCode":  null,
+                                                         "streetAddress":  null,
+                                                         "company":  null,
+                                                         "manager":  null,
+                                                         "distinguishedName":  "CN=patrice evra,CN=Users,DC=cat,DC=love",
+                                                         "accountExpires":  9223372036854775807,
+                                                         "whenChanged":  "\/Date(1750618492000)\/",
+                                                         "whenCreated":  "\/Date(1750618492000)\/",
+                                                         "pwdLastSet":  133950920922168140,
+                                                         "userAccountControl":  512
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1150":  {
+                                                         "objectClass":  "user",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1150",
+                                                         "badPasswordTime":  0,
+                                                         "lastlogon":  133953375280855710,
+                                                         "lockoutTime":  null,
+                                                         "DisplayName":  null,
+                                                         "userPrincipalName":  null,
+                                                         "sAMAccountName":  "SVC_SVAD-Param",
+                                                         "title":  null,
+                                                         "l":  null,
+                                                         "postalCode":  null,
+                                                         "streetAddress":  null,
+                                                         "company":  null,
+                                                         "manager":  null,
+                                                         "distinguishedName":  "CN=SVC_SVAD-Param,CN=Users,DC=cat,DC=love",
+                                                         "accountExpires":  9223372036854775807,
+                                                         "whenChanged":  "\/Date(1750774512000)\/",
+                                                         "whenCreated":  "\/Date(1750774326000)\/",
+                                                         "pwdLastSet":  133952479262375442,
+                                                         "userAccountControl":  512
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1137":  {
+                                                         "objectClass":  "user",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1137",
+                                                         "badPasswordTime":  0,
+                                                         "lastlogon":  0,
+                                                         "lockoutTime":  null,
+                                                         "DisplayName":  "putain demerde",
+                                                         "userPrincipalName":  "putaindemerde@cat.love",
+                                                         "sAMAccountName":  "putaindemerde",
+                                                         "title":  null,
+                                                         "l":  null,
+                                                         "postalCode":  null,
+                                                         "streetAddress":  null,
+                                                         "company":  null,
+                                                         "manager":  null,
+                                                         "distinguishedName":  "CN=putain demerde,CN=Users,DC=cat,DC=love",
+                                                         "accountExpires":  9223372036854775807,
+                                                         "whenChanged":  "\/Date(1750622026000)\/",
+                                                         "whenCreated":  "\/Date(1750622026000)\/",
+                                                         "pwdLastSet":  0,
+                                                         "userAccountControl":  512
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1112":  {
+                                                         "objectClass":  "group",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1112",
+                                                         "member":  [
+
+                                                                    ],
+                                                         "distinguishedName":  "CN=PSO-AdminAccounts-ADdelegatedRight,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750495711000)\/",
+                                                         "whenCreated":  "\/Date(1750495711000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1115":  {
+                                                         "objectClass":  "group",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1115",
+                                                         "member":  [
+                                                                        "CN=DLGUSER01,CN=Users,DC=cat,DC=love",
+                                                                        "CN=Administrateur,CN=Users,DC=cat,DC=love"
+                                                                    ],
+                                                         "distinguishedName":  "CN=LS-DLG-DomainJoin-Extended,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750517215000)\/",
+                                                         "whenCreated":  "\/Date(1750495724000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1125":  {
+                                                         "objectClass":  "computer",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1125",
+                                                         "logonCount":  14,
+                                                         "operatingSystem":  null,
+                                                         "distinguishedName":  "CN=SRV-ACTIVEV,CN=Computers,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750606975000)\/",
+                                                         "whenCreated":  "\/Date(1750606752000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1102":  {
+                                                         "objectClass":  "group",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1102",
+                                                         "member":  [
+
+                                                                    ],
+                                                         "distinguishedName":  "CN=DnsUpdateProxy,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750495519000)\/",
+                                                         "whenCreated":  "\/Date(1750495519000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-521":  {
+                                                        "objectClass":  "group",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-521",
+                                                        "member":  [
+
+                                                                   ],
+                                                        "distinguishedName":  "CN=Contrôleurs de domaine en lecture seule,CN=Users,DC=cat,DC=love",
+                                                        "whenChanged":  "\/Date(1750497368000)\/",
+                                                        "whenCreated":  "\/Date(1750495480000)\/"
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-1103":  {
+                                                         "objectClass":  "group",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1103",
+                                                         "member":  [
+
+                                                                    ],
+                                                         "distinguishedName":  "CN=PSO-EmergencyAccounts-LongLive,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750495710000)\/",
+                                                         "whenCreated":  "\/Date(1750495710000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1104":  {
+                                                         "objectClass":  "group",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1104",
+                                                         "member":  [
+
+                                                                    ],
+                                                         "distinguishedName":  "CN=PSO-ServiceAccounts-Legacy,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750495711000)\/",
+                                                         "whenCreated":  "\/Date(1750495711000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1130":  {
+                                                         "objectClass":  "user",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1130",
+                                                         "badPasswordTime":  0,
+                                                         "lastlogon":  0,
+                                                         "lockoutTime":  null,
+                                                         "DisplayName":  "bernard tapis",
+                                                         "userPrincipalName":  "tapis@cat.love",
+                                                         "sAMAccountName":  "tapis",
+                                                         "title":  null,
+                                                         "l":  null,
+                                                         "postalCode":  null,
+                                                         "streetAddress":  null,
+                                                         "company":  null,
+                                                         "manager":  null,
+                                                         "distinguishedName":  "CN=bernard tapis,CN=Users,DC=cat,DC=love",
+                                                         "accountExpires":  9223372036854775807,
+                                                         "whenChanged":  "\/Date(1750618036000)\/",
+                                                         "whenCreated":  "\/Date(1750618036000)\/",
+                                                         "pwdLastSet":  133950916364247920,
+                                                         "userAccountControl":  512
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1149":  {
+                                                         "objectClass":  "user",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1149",
+                                                         "badPasswordTime":  0,
+                                                         "lastlogon":  133953375280855710,
+                                                         "lockoutTime":  null,
+                                                         "DisplayName":  null,
+                                                         "userPrincipalName":  null,
+                                                         "sAMAccountName":  "SVC_SVAD-Log",
+                                                         "title":  null,
+                                                         "l":  null,
+                                                         "postalCode":  null,
+                                                         "streetAddress":  null,
+                                                         "company":  null,
+                                                         "manager":  null,
+                                                         "distinguishedName":  "CN=SVC_SVAD-Log,CN=Users,DC=cat,DC=love",
+                                                         "accountExpires":  9223372036854775807,
+                                                         "whenChanged":  "\/Date(1750774326000)\/",
+                                                         "whenCreated":  "\/Date(1750774320000)\/",
+                                                         "pwdLastSet":  133952479204118005,
+                                                         "userAccountControl":  512
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1147":  {
+                                                         "objectClass":  "group",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1147",
+                                                         "member":  [
+                                                                        "CN=SVC_SVAD-Param,CN=Users,DC=cat,DC=love",
+                                                                        "CN=SVC_SVAD-Log,CN=Users,DC=cat,DC=love"
+                                                                    ],
+                                                         "distinguishedName":  "CN=GDL_SVC_DC-TASK,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750774331000)\/",
+                                                         "whenCreated":  "\/Date(1750774320000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-517":  {
+                                                        "objectClass":  "group",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-517",
+                                                        "member":  [
+
+                                                                   ],
+                                                        "distinguishedName":  "CN=Éditeurs de certificats,CN=Users,DC=cat,DC=love",
+                                                        "whenChanged":  "\/Date(1750495480000)\/",
+                                                        "whenCreated":  "\/Date(1750495480000)\/"
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-1106":  {
+                                                         "objectClass":  "group",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1106",
+                                                         "member":  [
+
+                                                                    ],
+                                                         "distinguishedName":  "CN=PSO-Users-ChangeEvery3years,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750495711000)\/",
+                                                         "whenCreated":  "\/Date(1750495711000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-501":  {
+                                                        "objectClass":  "user",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-501",
+                                                        "badPasswordTime":  0,
+                                                        "lastlogon":  0,
+                                                        "lockoutTime":  null,
+                                                        "DisplayName":  null,
+                                                        "userPrincipalName":  null,
+                                                        "sAMAccountName":  "Invité",
+                                                        "title":  null,
+                                                        "l":  null,
+                                                        "postalCode":  null,
+                                                        "streetAddress":  null,
+                                                        "company":  null,
+                                                        "manager":  null,
+                                                        "distinguishedName":  "CN=Invité,CN=Users,DC=cat,DC=love",
+                                                        "accountExpires":  9223372036854775807,
+                                                        "whenChanged":  "\/Date(1750495333000)\/",
+                                                        "whenCreated":  "\/Date(1750495333000)\/",
+                                                        "pwdLastSet":  0,
+                                                        "userAccountControl":  66082
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-1135":  {
+                                                         "objectClass":  "computer",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1135",
+                                                         "logonCount":  0,
+                                                         "operatingSystem":  null,
+                                                         "distinguishedName":  "CN=mabite,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750621783000)\/",
+                                                         "whenCreated":  "\/Date(1750621782000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-522":  {
+                                                        "objectClass":  "group",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-522",
+                                                        "member":  [
+
+                                                                   ],
+                                                        "distinguishedName":  "CN=Contrôleurs de domaine clonables,CN=Users,DC=cat,DC=love",
+                                                        "whenChanged":  "\/Date(1750495480000)\/",
+                                                        "whenCreated":  "\/Date(1750495480000)\/"
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-1127":  {
+                                                         "objectClass":  "user",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1127",
+                                                         "badPasswordTime":  0,
+                                                         "lastlogon":  0,
+                                                         "lockoutTime":  null,
+                                                         "DisplayName":  "jack quartier",
+                                                         "userPrincipalName":  "joijoijj@cat.love",
+                                                         "sAMAccountName":  "joijoijj",
+                                                         "title":  null,
+                                                         "l":  null,
+                                                         "postalCode":  null,
+                                                         "streetAddress":  null,
+                                                         "company":  null,
+                                                         "manager":  null,
+                                                         "distinguishedName":  "CN=jack quartier,CN=Users,DC=cat,DC=love",
+                                                         "accountExpires":  9223372036854775807,
+                                                         "whenChanged":  "\/Date(1750617444000)\/",
+                                                         "whenCreated":  "\/Date(1750617444000)\/",
+                                                         "pwdLastSet":  133950910446196695,
+                                                         "userAccountControl":  512
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1134":  {
+                                                         "objectClass":  "user",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1134",
+                                                         "badPasswordTime":  0,
+                                                         "lastlogon":  0,
+                                                         "lockoutTime":  null,
+                                                         "DisplayName":  "levis stan",
+                                                         "userPrincipalName":  "stan@cat.love",
+                                                         "sAMAccountName":  "stan",
+                                                         "title":  null,
+                                                         "l":  null,
+                                                         "postalCode":  null,
+                                                         "streetAddress":  null,
+                                                         "company":  null,
+                                                         "manager":  null,
+                                                         "distinguishedName":  "CN=levis stan,CN=Users,DC=cat,DC=love",
+                                                         "accountExpires":  9223372036854775807,
+                                                         "whenChanged":  "\/Date(1750621385000)\/",
+                                                         "whenCreated":  "\/Date(1750621385000)\/",
+                                                         "pwdLastSet":  133950949854631446,
+                                                         "userAccountControl":  512
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1136":  {
+                                                         "objectClass":  "user",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1136",
+                                                         "badPasswordTime":  0,
+                                                         "lastlogon":  0,
+                                                         "lockoutTime":  null,
+                                                         "DisplayName":  "jean cule",
+                                                         "userPrincipalName":  "jeancule@cat.love",
+                                                         "sAMAccountName":  "jeancule",
+                                                         "title":  null,
+                                                         "l":  null,
+                                                         "postalCode":  null,
+                                                         "streetAddress":  null,
+                                                         "company":  null,
+                                                         "manager":  null,
+                                                         "distinguishedName":  "CN=jean cule,CN=Users,DC=cat,DC=love",
+                                                         "accountExpires":  9223372036854775807,
+                                                         "whenChanged":  "\/Date(1750621798000)\/",
+                                                         "whenCreated":  "\/Date(1750621798000)\/",
+                                                         "pwdLastSet":  0,
+                                                         "userAccountControl":  512
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1116":  {
+                                                         "objectClass":  "user",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1116",
+                                                         "badPasswordTime":  133950043015016723,
+                                                         "lastlogon":  133950805755353562,
+                                                         "lockoutTime":  null,
+                                                         "DisplayName":  "DLGUSER01",
+                                                         "userPrincipalName":  "DLGUSER01@cat.love",
+                                                         "sAMAccountName":  "DLGUSER01",
+                                                         "title":  null,
+                                                         "l":  null,
+                                                         "postalCode":  null,
+                                                         "streetAddress":  null,
+                                                         "company":  null,
+                                                         "manager":  null,
+                                                         "distinguishedName":  "CN=DLGUSER01,CN=Users,DC=cat,DC=love",
+                                                         "accountExpires":  9223372036854775807,
+                                                         "whenChanged":  "\/Date(1750530751000)\/",
+                                                         "whenCreated":  "\/Date(1750495724000)\/",
+                                                         "pwdLastSet":  133950043516964670,
+                                                         "userAccountControl":  1049088
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1141":  {
+                                                         "objectClass":  "group",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1141",
+                                                         "member":  [
+
+                                                                    ],
+                                                         "distinguishedName":  "CN=oijoijj,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750629192000)\/",
+                                                         "whenCreated":  "\/Date(1750629192000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-518":  {
+                                                        "objectClass":  "group",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-518",
+                                                        "member":  [
+
+                                                                   ],
+                                                        "distinguishedName":  "CN=Administrateurs du schéma,CN=Users,DC=cat,DC=love",
+                                                        "whenChanged":  "\/Date(1750497368000)\/",
+                                                        "whenCreated":  "\/Date(1750495480000)\/"
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-1140":  {
+                                                         "objectClass":  "user",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1140",
+                                                         "badPasswordTime":  0,
+                                                         "lastlogon":  0,
+                                                         "lockoutTime":  null,
+                                                         "DisplayName":  "oijoij oijoij.",
+                                                         "userPrincipalName":  "oijoi@cat.love",
+                                                         "sAMAccountName":  "oijoi",
+                                                         "title":  null,
+                                                         "l":  null,
+                                                         "postalCode":  null,
+                                                         "streetAddress":  null,
+                                                         "company":  null,
+                                                         "manager":  null,
+                                                         "distinguishedName":  "CN=oijoij oijoij.,CN=Users,DC=cat,DC=love",
+                                                         "accountExpires":  9223372036854775807,
+                                                         "whenChanged":  "\/Date(1750623443000)\/",
+                                                         "whenCreated":  "\/Date(1750623443000)\/",
+                                                         "pwdLastSet":  0,
+                                                         "userAccountControl":  512
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-525":  {
+                                                        "objectClass":  "group",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-525",
+                                                        "member":  [
+                                                                       "CN=Administrateur,CN=Users,DC=cat,DC=love"
+                                                                   ],
+                                                        "distinguishedName":  "CN=Protected Users,CN=Users,DC=cat,DC=love",
+                                                        "whenChanged":  "\/Date(1750495716000)\/",
+                                                        "whenCreated":  "\/Date(1750495480000)\/"
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-498":  {
+                                                        "objectClass":  "group",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-498",
+                                                        "member":  [
+
+                                                                   ],
+                                                        "distinguishedName":  "CN=Contrôleurs de domaine d’entreprise en lecture seule,CN=Users,DC=cat,DC=love",
+                                                        "whenChanged":  "\/Date(1750495480000)\/",
+                                                        "whenCreated":  "\/Date(1750495480000)\/"
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-571":  {
+                                                        "objectClass":  "group",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-571",
+                                                        "member":  [
+
+                                                                   ],
+                                                        "distinguishedName":  "CN=Groupe de réplication dont le mot de passe RODC est autorisé,CN=Users,DC=cat,DC=love",
+                                                        "whenChanged":  "\/Date(1750495480000)\/",
+                                                        "whenCreated":  "\/Date(1750495480000)\/"
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-527":  {
+                                                        "objectClass":  "group",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-527",
+                                                        "member":  [
+
+                                                                   ],
+                                                        "distinguishedName":  "CN=Administrateurs clés Enterprise,CN=Users,DC=cat,DC=love",
+                                                        "whenChanged":  "\/Date(1750497368000)\/",
+                                                        "whenCreated":  "\/Date(1750495480000)\/"
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-553":  {
+                                                        "objectClass":  "group",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-553",
+                                                        "member":  [
+
+                                                                   ],
+                                                        "distinguishedName":  "CN=Serveurs RAS et IAS,CN=Users,DC=cat,DC=love",
+                                                        "whenChanged":  "\/Date(1750495480000)\/",
+                                                        "whenCreated":  "\/Date(1750495480000)\/"
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-515":  {
+                                                        "objectClass":  "group",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-515",
+                                                        "member":  [
+
+                                                                   ],
+                                                        "distinguishedName":  "CN=Ordinateurs du domaine,CN=Users,DC=cat,DC=love",
+                                                        "whenChanged":  "\/Date(1750495479000)\/",
+                                                        "whenCreated":  "\/Date(1750495479000)\/"
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-1126":  {
+                                                         "objectClass":  "user",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1126",
+                                                         "badPasswordTime":  0,
+                                                         "lastlogon":  0,
+                                                         "lockoutTime":  null,
+                                                         "DisplayName":  "albert paté.",
+                                                         "userPrincipalName":  "kok@cat.love",
+                                                         "sAMAccountName":  "kok",
+                                                         "title":  null,
+                                                         "l":  null,
+                                                         "postalCode":  null,
+                                                         "streetAddress":  null,
+                                                         "company":  null,
+                                                         "manager":  null,
+                                                         "distinguishedName":  "CN=albert paté.,CN=Users,DC=cat,DC=love",
+                                                         "accountExpires":  9223372036854775807,
+                                                         "whenChanged":  "\/Date(1750616790000)\/",
+                                                         "whenCreated":  "\/Date(1750616790000)\/",
+                                                         "pwdLastSet":  133950903903289137,
+                                                         "userAccountControl":  512
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-512":  {
+                                                        "objectClass":  "group",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-512",
+                                                        "member":  [
+                                                                       "CN=SVC_SVAD-Param,CN=Users,DC=cat,DC=love",
+                                                                       "CN=SVC_SVAD-Param,CN=Managed Service Accounts,DC=cat,DC=love",
+                                                                       "CN=Administrateur,CN=Users,DC=cat,DC=love"
+                                                                   ],
+                                                        "distinguishedName":  "CN=Admins du domaine,CN=Users,DC=cat,DC=love",
+                                                        "whenChanged":  "\/Date(1750774331000)\/",
+                                                        "whenCreated":  "\/Date(1750495480000)\/"
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-1129":  {
+                                                         "objectClass":  "user",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1129",
+                                                         "badPasswordTime":  0,
+                                                         "lastlogon":  0,
+                                                         "lockoutTime":  null,
+                                                         "DisplayName":  "fabien trentnaire",
+                                                         "userPrincipalName":  "fabien@cat.love",
+                                                         "sAMAccountName":  "fabien",
+                                                         "title":  null,
+                                                         "l":  null,
+                                                         "postalCode":  null,
+                                                         "streetAddress":  null,
+                                                         "company":  null,
+                                                         "manager":  null,
+                                                         "distinguishedName":  "CN=fabien trentnaire,CN=Users,DC=cat,DC=love",
+                                                         "accountExpires":  9223372036854775807,
+                                                         "whenChanged":  "\/Date(1750617701000)\/",
+                                                         "whenCreated":  "\/Date(1750617701000)\/",
+                                                         "pwdLastSet":  133950913012197954,
+                                                         "userAccountControl":  512
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1107":  {
+                                                         "objectClass":  "group",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1107",
+                                                         "member":  [
+
+                                                                    ],
+                                                         "distinguishedName":  "CN=PSO-Users-ChangeEvery1year,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750495711000)\/",
+                                                         "whenCreated":  "\/Date(1750495711000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-502":  {
+                                                        "objectClass":  "user",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-502",
+                                                        "badPasswordTime":  0,
+                                                        "lastlogon":  0,
+                                                        "lockoutTime":  null,
+                                                        "DisplayName":  null,
+                                                        "userPrincipalName":  null,
+                                                        "sAMAccountName":  "krbtgt",
+                                                        "title":  null,
+                                                        "l":  null,
+                                                        "postalCode":  null,
+                                                        "streetAddress":  null,
+                                                        "company":  null,
+                                                        "manager":  null,
+                                                        "distinguishedName":  "CN=krbtgt,CN=Users,DC=cat,DC=love",
+                                                        "accountExpires":  9223372036854775807,
+                                                        "whenChanged":  "\/Date(1750497368000)\/",
+                                                        "whenCreated":  "\/Date(1750495479000)\/",
+                                                        "pwdLastSet":  133949690799243212,
+                                                        "userAccountControl":  514
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-526":  {
+                                                        "objectClass":  "group",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-526",
+                                                        "member":  [
+
+                                                                   ],
+                                                        "distinguishedName":  "CN=Administrateurs clés,CN=Users,DC=cat,DC=love",
+                                                        "whenChanged":  "\/Date(1750497368000)\/",
+                                                        "whenCreated":  "\/Date(1750495480000)\/"
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-1101":  {
+                                                         "objectClass":  "group",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1101",
+                                                         "member":  [
+
+                                                                    ],
+                                                         "distinguishedName":  "CN=DnsAdmins,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750495519000)\/",
+                                                         "whenCreated":  "\/Date(1750495519000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1109":  {
+                                                         "objectClass":  "group",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1109",
+                                                         "member":  [
+
+                                                                    ],
+                                                         "distinguishedName":  "CN=PSO-ServiceAccounts-ExtendedLife,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750495711000)\/",
+                                                         "whenCreated":  "\/Date(1750495711000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-500":  {
+                                                        "objectClass":  "user",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-500",
+                                                        "badPasswordTime":  133951857430997686,
+                                                        "lastlogon":  133953358588581343,
+                                                        "lockoutTime":  null,
+                                                        "DisplayName":  null,
+                                                        "userPrincipalName":  null,
+                                                        "sAMAccountName":  "Administrateur",
+                                                        "title":  null,
+                                                        "l":  null,
+                                                        "postalCode":  null,
+                                                        "streetAddress":  null,
+                                                        "company":  null,
+                                                        "manager":  null,
+                                                        "distinguishedName":  "CN=Administrateur,CN=Users,DC=cat,DC=love",
+                                                        "accountExpires":  9223372036854775807,
+                                                        "whenChanged":  "\/Date(1750497368000)\/",
+                                                        "whenCreated":  "\/Date(1750495333000)\/",
+                                                        "pwdLastSet":  133934060389452911,
+                                                        "userAccountControl":  1049088
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-1152":  {
+                                                         "objectClass":  "user",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1152",
+                                                         "badPasswordTime":  0,
+                                                         "lastlogon":  0,
+                                                         "lockoutTime":  null,
+                                                         "DisplayName":  "sdfg",
+                                                         "userPrincipalName":  "cdfgb@cat.love",
+                                                         "sAMAccountName":  "cdfgb",
+                                                         "title":  null,
+                                                         "l":  null,
+                                                         "postalCode":  null,
+                                                         "streetAddress":  null,
+                                                         "company":  null,
+                                                         "manager":  null,
+                                                         "distinguishedName":  "CN=sdfg,CN=Users,DC=cat,DC=love",
+                                                         "accountExpires":  9223372036854775807,
+                                                         "whenChanged":  "\/Date(1750775314000)\/",
+                                                         "whenCreated":  "\/Date(1750775314000)\/",
+                                                         "pwdLastSet":  133952489140721910,
+                                                         "userAccountControl":  512
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1114":  {
+                                                         "objectClass":  "group",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1114",
+                                                         "member":  [
+                                                                        "CN=Administrateur,CN=Users,DC=cat,DC=love"
+                                                                    ],
+                                                         "distinguishedName":  "CN=PSO-AdminAccounts-ADhighPrivileges,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750495711000)\/",
+                                                         "whenCreated":  "\/Date(1750495711000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-572":  {
+                                                        "objectClass":  "group",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-572",
+                                                        "member":  [
+                                                                       "CN=Contrôleurs de domaine en lecture seule,CN=Users,DC=cat,DC=love",
+                                                                       "CN=Propriétaires créateurs de la stratégie de groupe,CN=Users,DC=cat,DC=love",
+                                                                       "CN=Admins du domaine,CN=Users,DC=cat,DC=love",
+                                                                       "CN=Éditeurs de certificats,CN=Users,DC=cat,DC=love",
+                                                                       "CN=Administrateurs de l’entreprise,CN=Users,DC=cat,DC=love",
+                                                                       "CN=Administrateurs du schéma,CN=Users,DC=cat,DC=love",
+                                                                       "CN=Contrôleurs de domaine,CN=Users,DC=cat,DC=love",
+                                                                       "CN=krbtgt,CN=Users,DC=cat,DC=love"
+                                                                   ],
+                                                        "distinguishedName":  "CN=Groupe de réplication dont le mot de passe RODC est refusé,CN=Users,DC=cat,DC=love",
+                                                        "whenChanged":  "\/Date(1750495480000)\/",
+                                                        "whenCreated":  "\/Date(1750495480000)\/"
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-1111":  {
+                                                         "objectClass":  "group",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1111",
+                                                         "member":  [
+
+                                                                    ],
+                                                         "distinguishedName":  "CN=PSO-AdminAccounts-SystemPrivileged,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750495711000)\/",
+                                                         "whenCreated":  "\/Date(1750495711000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1113":  {
+                                                         "objectClass":  "group",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1113",
+                                                         "member":  [
+
+                                                                    ],
+                                                         "distinguishedName":  "CN=PSO-ServiceAccounts-ADdelegatedRight,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750495711000)\/",
+                                                         "whenCreated":  "\/Date(1750495711000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1148":  {
+                                                         "objectClass":  "group",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1148",
+                                                         "member":  [
+                                                                        "CN=SVC_SVAD-Param,CN=Users,DC=cat,DC=love",
+                                                                        "CN=SVC_SVAD-Log,CN=Users,DC=cat,DC=love"
+                                                                    ],
+                                                         "distinguishedName":  "CN=GDL_SVAD_SMB-WO,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750774331000)\/",
+                                                         "whenCreated":  "\/Date(1750774320000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1110":  {
+                                                         "objectClass":  "group",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1110",
+                                                         "member":  [
+                                                                        "CN=DLGUSER01,CN=Users,DC=cat,DC=love"
+                                                                    ],
+                                                         "distinguishedName":  "CN=PSO-ServiceAccounts-Standard,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750495726000)\/",
+                                                         "whenCreated":  "\/Date(1750495711000)\/"
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-519":  {
+                                                        "objectClass":  "group",
+                                                        "objectSid":  "S-1-5-21-379138679-3355780599-512868800-519",
+                                                        "member":  [
+                                                                       "CN=Administrateur,CN=Users,DC=cat,DC=love"
+                                                                   ],
+                                                        "distinguishedName":  "CN=Administrateurs de l’entreprise,CN=Users,DC=cat,DC=love",
+                                                        "whenChanged":  "\/Date(1750497368000)\/",
+                                                        "whenCreated":  "\/Date(1750495480000)\/"
+                                                    },
+    "S-1-5-21-379138679-3355780599-512868800-1132":  {
+                                                         "objectClass":  "user",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1132",
+                                                         "badPasswordTime":  0,
+                                                         "lastlogon":  0,
+                                                         "lockoutTime":  null,
+                                                         "DisplayName":  "dimitri puskas",
+                                                         "userPrincipalName":  "puskas@cat.love",
+                                                         "sAMAccountName":  "puskas",
+                                                         "title":  null,
+                                                         "l":  null,
+                                                         "postalCode":  null,
+                                                         "streetAddress":  null,
+                                                         "company":  null,
+                                                         "manager":  null,
+                                                         "distinguishedName":  "CN=dimitri puskas,CN=Users,DC=cat,DC=love",
+                                                         "accountExpires":  9223372036854775807,
+                                                         "whenChanged":  "\/Date(1750618670000)\/",
+                                                         "whenCreated":  "\/Date(1750618670000)\/",
+                                                         "pwdLastSet":  133950922701583426,
+                                                         "userAccountControl":  512
+                                                     },
+    "S-1-5-21-379138679-3355780599-512868800-1151":  {
+                                                         "objectClass":  "computer",
+                                                         "objectSid":  "S-1-5-21-379138679-3355780599-512868800-1151",
+                                                         "logonCount":  0,
+                                                         "operatingSystem":  null,
+                                                         "distinguishedName":  "CN=oijoijoij,CN=Users,DC=cat,DC=love",
+                                                         "whenChanged":  "\/Date(1750774759000)\/",
+                                                         "whenCreated":  "\/Date(1750774759000)\/"
+                                                     }
+}
