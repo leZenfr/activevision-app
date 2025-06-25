@@ -40,6 +40,7 @@
                             <h4 class="text-lg font-semibold mb-4 text-gray-800">Gestion du compte</h4>
                             <p><strong>Expiration du compte :</strong> <span class="text-gray-700">{{ $objectUser->accountExpires ? $objectUser->accountExpires->format('d/m/Y H:i') : 'Jamais' }}</span></p>
                             <p><strong>Dernière modification :</strong> <span class="text-gray-700">{{ $objectUser->whenChanged ? $objectUser->whenChanged->format('d/m/Y H:i') : 'Jamais' }}</span></p>
+                            <p><strong>Dernière modification de mot de passe :</strong> <span class="text-gray-700">{{ $objectUser->pwdLastSet ? $objectUser->pwdLastSet->format('d/m/Y H:i') : 'Jamais' }}</span></p>
                             <p><strong>Date de création :</strong> <span class="text-gray-700">{{ $objectUser->whenCreated ? $objectUser->whenCreated->format('d/m/Y H:i') : 'Inconnue' }}</span></p>
                             <p><strong>Contrôle du compte utilisateur :</strong> <span class="text-gray-700">{{ $objectUser->userAccountControl ? 'Activé' : 'Désactivé' }}</span></p>
                         </div>
