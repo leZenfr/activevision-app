@@ -67,8 +67,8 @@ sudo systemctl restart networking.service
 net ads join -U "DLGUSER01"
 sudo mkdir /srv/partage
 sudo chmod 333 /srv/partage
-mkdir /srv/partage/objects
-mkdir /srv/partage/events
+sudo mkdir /srv/partage/objects
+sudo mkdir /srv/partage/events
 systemctl restart winbind smbd nmbd
 ```
 
