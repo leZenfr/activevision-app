@@ -3,10 +3,8 @@
 ## Étape 1 : Mettre les scripts dans le répertoire dédié
 
 ```
-cd /activevision-app/
-```
-
-```
+cd
+cd activevision-app/
 sudo cp agents/object-agent.py /srv/
 sudo cp agents/event-agent.py /srv/
 ```
@@ -15,13 +13,9 @@ sudo cp agents/event-agent.py /srv/
 ```
 sudo cp conf/install-lib.sh /srv/
 sudo cp conf/start.sh /srv/
-```
 
-```
 cd /srv/
-```
 
-```
 sudo chmod +x install-lib.sh
 sudo chmod +x start.sh
 ```
