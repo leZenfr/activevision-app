@@ -51,11 +51,7 @@ winbind use default domain = true
         hide unreadable = yes
 ```
 
-Il faut mettre l'ip du serveur AD en DNS principal
-```
-echo "dns-nameservers $ipServerAD"| sudo tee -a 
-/etc/network/interfaces
-```
+**IMPORTANT :** Il faut ajouter l'ip du contrôleur de domaine en DNS pour que tout fonctionne correctement. 
 
 Puis ensuite il faut redémarrer le service `networking`
 ```
