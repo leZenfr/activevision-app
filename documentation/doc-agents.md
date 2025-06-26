@@ -57,6 +57,8 @@ sudo ./install-lib.sh
 
 Démarrer les agents python
 ```
-sudo bash start.sh
+su -
+
+./start.sh
 ```
 
