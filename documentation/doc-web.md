@@ -64,7 +64,7 @@ DB_PASSWORD=VOTRE_MOT_DE_PASSE
 
 Paramétrer mysql pour rendre la base compatible
 ```
-nano /etc/mysql/my.cnf
+sudo nano /etc/mysql/my.cnf
 ```
 
 Rajouter cette ligne à la fin
