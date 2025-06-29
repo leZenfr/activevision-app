@@ -12,28 +12,19 @@ Installer le projet dans le répertoire `/var/www/`
 ```
 cd activevision-app/
 sudo cp -r activevision-web/  /var/www/
-```
-Il faut ensuite installer les dépendances 
-```
+
 cd /var/www/activevision-web
-```
-```
 sudo composer install
-```
-```
 sudo npm install
 ```
 ### Étape 2 : Configurer l'application et la base de données
 
 IMPORTANT : Il faut rester dans le répertoire `/var/www/activevision`
 
-Créer la base de données
+Créer la base de données et de l'utilisateur
 ```
 sudo mysql -u root -p -e "CREATE DATABASE ads;"
-```
 
-Créer l'utilisateur pour la base de données
-```
 DB_NAME="ads"
 DB_USER="mon_user"
 DB_PASS="mon_mot_de_passe"
@@ -62,38 +53,18 @@ DB_USERNAME=VOTRE_USER
 DB_PASSWORD=VOTRE_MOT_DE_PASSE
 ```
 
-Paramétrer mysql pour rendre la base compatible
+Paramétrer mysql pour rendre la base compatible et redémarrer le service
 ```
-nano /etc/mysql/my.cnf
-```
-
-Rajouter cette ligne à la fin
-```
-[mysqld]
-sql_mode=""
-```
-Redémarrer le service
-```
+echo -e '\n[mysqld]\nsql_mode=""' | sudo tee -a /etc/mysql/my.cnf > /dev/null
 sudo systemctl restart mysql
 ```
 
-Build l'application
+
+Préparer l'application
 ```
 sudo npm run build
-```
-
-Faire les migrations
-```
 php artisan migrate
-```
-
-Créer la clé 
-```
 sudo php artisan key:generate
-```
-
-Préremplir la base 
-```
 php artisan db:seed
 ```
 
@@ -105,4 +76,5 @@ sudo php artisan serve --host=0.0.0.0 --port=8000
 Mot de passe par défaut l'app :
 
 Identifiants : admin@activevision.fr
+
 MDP : admin1234
