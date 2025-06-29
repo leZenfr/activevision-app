@@ -127,7 +127,9 @@ def process_events(events,userID,groupID,computerID,dbConfig):
                         timeCreated
                     ))
 
-                    # print(event.get("EventID", 0))
+                    print(event.get("ServerIP", 0))
+                    print(event.get("ServerName", 0))
+                    print(event.get("ServerSID", 0))
                     # print(event.get("Parameters", {}).get("TargetUserName", "Clé non trouvée"))
 
             elif eventID in groupID:
@@ -170,6 +172,10 @@ def process_events(events,userID,groupID,computerID,dbConfig):
                         timeCreated,
                         timeCreated
                     ))
+                    print(event.get("ServerIP", 0))
+                    print(event.get("ServerName", 0))
+                    print(event.get("ServerSID", 0))
+
             elif eventID in computerID:
                     sql = """
                         INSERT INTO computerlog (
@@ -236,6 +242,9 @@ def process_events(events,userID,groupID,computerID,dbConfig):
                         timeCreated,
                         timeCreated
                     ))
+                    print(event.get("ServerIP", 0))
+                    print(event.get("ServerName", 0))
+                    print(event.get("ServerSID", 0))
 
         except Exception as e:
             print(f"Erreur lors du traitement de l'événement {eventID}: {e}")
