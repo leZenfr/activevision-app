@@ -51,11 +51,7 @@ winbind use default domain = true
         hide unreadable = yes
 ```
 
-Il faut mettre l'ip du serveur AD en DNS principal
-```
-echo "dns-nameservers $ipServerAD"| sudo tee -a 
-/etc/network/interfaces
-```
+**IMPORTANT :** Il faut ajouter l'ip du contrôleur de domaine en DNS pour que tout fonctionne correctement. 
 
 Puis ensuite il faut redémarrer le service `networking`
 ```
@@ -65,6 +61,7 @@ sudo systemctl restart networking.service
 ## Étape 3 : Joindre le domaine et appliquer les droits au partage
 ```
 sudo net ads join -U "DLGUSER01"
+sudo mkdir /srv/partage/
 sudo mkdir /srv/partage/objects
 sudo mkdir /srv/partage/events
 sudo chmod 333 /srv/partage
