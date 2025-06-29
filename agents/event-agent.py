@@ -230,9 +230,9 @@ def process_events(events,userID,groupID,computerID,dbConfig):
                         event.get("Parameters", {}).get("DnsHostName", 0),
                         event.get("Parameters", {}).get("ServicePrincipalNames", 0),
                         event.get("Parameters", {}).get("Service1", 0),
-                        event.get("serverSid", 0),
-                        event.get("serverName", 0),
-                        event.get("serverIp", 0),
+                        event.get("ServerSID", 0),
+                        event.get("ServerName", 0),
+                        event.get("ServerIP", 0),
                         timeCreated,
                         timeCreated
                     ))
