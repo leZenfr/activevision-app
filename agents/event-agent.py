@@ -275,5 +275,5 @@ if __name__ == "__main__":
                 process_events(eventsFromJson,userID,groupID,computerID,dbConfig)
 
                 os.remove(filePath)
-            time.sleep(120)  # Vérifie toutes les 2 minutes
+        time.sleep(120)  # Vérifie toutes les 2 minutes
 # Main---
