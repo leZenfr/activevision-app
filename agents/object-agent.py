@@ -65,15 +65,14 @@ def process_objects(objects,dbConfig):
                         ON DUPLICATE KEY UPDATE
                         displayName = VALUES(displayName), userPrincipalName = VALUES(userPrincipalName), sAMAccountName = VALUES(sAMAccountName), distinguishedName = VALUES(distinguishedName), accountExpires = VALUES(accountExpires), whenChanged = VALUES(whenChanged), whenCreated = VALUES(whenCreated), userAccountControl = VALUES(userAccountControl), updated_at = NOW()
                     """
-                    anonymized_sam = anonymize_sam(obj.get("sAMAccountName", ""))
                     cursor.execute(sql, (
                         obj["objectSid"],
                         obj.get("badPasswordTime", 0),
                         obj.get("lastlogon", 0),
                         obj.get("lockoutTime", 0),
-                        anonymized_sam,
-                        anonymize_upn(obj.get("userPrincipalName", "")),
-                        anonymized_sam,
+                        obj.get("sAMAccountName", ""),
+                        obj.get("userPrincipalName", ""),
+                        obj.get("DisplayName", ""),
                         obj.get("distinguishedName", ""),
                         obj.get("accountExpires", 0),
                         convert_json_date(obj.get("whenChanged")),
